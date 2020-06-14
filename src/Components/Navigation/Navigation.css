@@ -1,0 +1,39 @@
+.navigationWrapper {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(218, 216, 214);
+}
+
+.navigationFirstPart {
+  display: flex;
+  padding: 0;
+  margin: 1%;
+}
+
+.navigationSecondPart {
+  display: flex;
+  padding: 0;
+  margin: 1%;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+  animation: pop 0.1s ease-in backwards;
+  animation-play-state: paused;
+  font-family: "Balsamiq Sans", cursive;
+}
+li:hover {
+  animation-play-state: running;
+  animation: pop 0.1s ease-in forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
