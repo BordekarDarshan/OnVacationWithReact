@@ -22,3 +22,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.bannerButton:hover {
+  background-color: black;
+  opacity: 1;
+}
