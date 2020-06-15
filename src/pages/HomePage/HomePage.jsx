@@ -16,7 +16,7 @@ export class HomePage extends Component {
             <li>CONTACT</li>
             <li>SIGN IN</li>
             <li>
-              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag fa-2x"></i>
             </li>
           </ul>
         </div>
