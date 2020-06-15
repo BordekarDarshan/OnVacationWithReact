@@ -13,7 +13,7 @@ export class Navigation extends Component {
           <li>CONTACT</li>
           <li>SIGN IN</li>
           <li>
-            <i class="fa fa-shopping-bag fa-2x"></i>
+            <i className="fa fa-shopping-bag fa-2x"></i>
           </li>
         </ul>
       </div>
