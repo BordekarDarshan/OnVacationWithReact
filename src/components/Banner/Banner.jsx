@@ -1,16 +1,16 @@
 import React from "react";
 
 import "./Banner.css";
-function Banner(props) {
+function Banner({ bannerHead, bannerSubHead, img, unique, goToPage }) {
   return (
     <div
-      style={{ backgroundImage: `url(${props.bannerImg})` }}
+      style={{ backgroundImage: `url(${img})` }}
       className="bannerWrapper"
-      key={props.unique}
+      key={unique}
     >
-      <div className="bannerButton" onClick={props.goToPage}>
-        <h4>{props.buttonHead}</h4>
-        <p>{props.bttonSubHeading}</p>
+      <div className="bannerButton" onClick={goToPage}>
+        <h4>{bannerHead}</h4>
+        <p>{bannerSubHead}</p>
       </div>
     </div>
   );
