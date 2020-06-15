@@ -7,6 +7,7 @@ li {
 .header {
   display: flex;
   justify-content: space-between;
+  margin: 1% 0 1% 0;
 }
 
 .navigationOption {
@@ -16,7 +17,7 @@ li {
 }
 
 .logo {
-  background: url(../../Upload/owl.png) no-repeat center;
+  background: url(https://i.ibb.co/ZzvxTLx/owl.png) no-repeat center;
   background-size: 90%;
   max-width: 100px;
   flex: 1 1 0;
@@ -26,4 +27,10 @@ li {
 
 .logo li {
   text-indent: -100000px;
+}
+
+.shopContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

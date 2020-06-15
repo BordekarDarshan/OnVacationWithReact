@@ -1,0 +1,23 @@
+.bannerWrapper {
+  display: flex;
+  min-width: 30%;
+  background-position: center;
+  background-size: cover;
+  height: 20rem;
+  flex: 1 1 0;
+  margin: 1%;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerButton {
+  min-width: 50%;
+  background-color: black;
+  opacity: 0.8;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  color: wheat;
+  border-radius: 5px;
+  cursor: pointer;
+}
