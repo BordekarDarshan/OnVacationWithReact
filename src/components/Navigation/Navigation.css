@@ -1,0 +1,30 @@
+li {
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0% 1% 1% 0;
+}
+
+.navigationOption {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.logo {
+  background: url(https://i.ibb.co/ZzvxTLx/owl.png) no-repeat center;
+  background-size: 90%;
+  max-width: 100px;
+  flex: 1 1 0;
+  display: flex;
+  padding-top: 10px;
+}
+
+.logo li {
+  text-indent: -100000px;
+}
