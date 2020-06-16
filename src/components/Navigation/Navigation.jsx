@@ -9,6 +9,7 @@ export class Navigation extends Component {
         <div className="logo">
           <li>logo</li>
         </div>
+
         <ul className="navigationOption ">
           <li>
             <Link to="/shop" className="shopLink">

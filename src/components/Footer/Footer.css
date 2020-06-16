@@ -1,0 +1,19 @@
+.footerContainer {
+  display: flex;
+  background-color: #05192d;
+  justify-content: space-around;
+}
+
+.addressContact,
+.Follow,
+.logoWrapper {
+  color: #9dada3;
+  font-family: "Paytone One", cursive;
+}
+
+.logoWrapper {
+  width: 100px;
+}
+.logoWrapper > img {
+  width: 100%;
+}

@@ -9,6 +9,7 @@ function CollectionCard({ title, routeName, items }) {
         <h5>{title}</h5>
         <button className="btn btn-outline-dark">View All</button>
       </div>
+
       <div className="cardWrapper">
         {items
           .filter((item, index) => index < 4)

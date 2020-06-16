@@ -1,6 +1,7 @@
 .collectionNamAndButton {
   display: flex;
   justify-content: space-between;
+  margin: 0 4% 0 4%;
 }
 
 .cardWrapper {
@@ -15,7 +16,6 @@
   font-family: "Amatic SC", cursive;
   border-bottom: 2px yellow solid;
   animation: scaleText 1s cubic-bezier(0.1, 0.65, 0.52, 0.99);
-  margin-left: 4%;
 }
 
 @keyframes scaleText {
