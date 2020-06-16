@@ -3,7 +3,7 @@ export let Homepage = [
     id: 1,
     bannerHead: "HAT",
     bannerSubHead: "SHOP NOW",
-    img: "https://i.ibb.co/8DyBWG5/Hat.png",
+    img: "https://i.ibb.co/c23HMZR/Women-Hat.png",
     linkUrl: "/hats",
   },
   {

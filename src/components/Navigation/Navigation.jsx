@@ -11,15 +11,12 @@ export class Navigation extends Component {
         </div>
         <ul className="navigationOption ">
           <li>
-            <Link className="text-secondary" to="/shop">
+            <Link to="/shop" className="shopLink">
               SHOP
             </Link>
           </li>
-          <li>CONTACT</li>
           <li>SIGN IN</li>
-          <li>
-            <i className="fa fa-shopping-bag fa-2x"> </i>
-          </li>
+          <li>YOUR CART</li>
         </ul>
       </div>
     );

@@ -2,5 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: #465966;
+}
+.background {
+  background-color: #9dada3;
 }

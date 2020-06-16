@@ -15,7 +15,7 @@ export class ShopPage extends Component {
   render() {
     const { collection } = this.state;
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mt-2">
         {collection.map(({ id, ...otherProps }) => (
           <CollectionCard key={id} {...otherProps}></CollectionCard>
         ))}

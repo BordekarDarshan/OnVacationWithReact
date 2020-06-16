@@ -2,22 +2,49 @@ li {
   list-style: none;
   padding: 10px;
   cursor: pointer;
+  font-family: "Paytone One", sans-serif;
+  color: #083232;
+  font-weight: 500;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 0% 1% 2% 0;
+  padding: 1% 1% 1% 0;
+  background-color: #9dada3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .navigationOption {
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: space-evenly;
+}
+
+.navigationOption > li:nth-child(1) {
+  padding-top: 15px;
+}
+
+.navigationOption > li:nth-child(2) {
+  text-indent: -10000px;
+  background: url(https://i.ibb.co/wB25mYW/icons8-circled-user-64.png) no-repeat
+    center;
+  background-size: 90%;
+  width: 40px;
+}
+.navigationOption > li:nth-child(3) {
+  text-indent: -10000px;
+  background: url(https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png) no-repeat
+    center;
+  background-size: 80%;
+  width: 40px;
 }
 
 .logo {
-  background: url(https://i.ibb.co/ZzvxTLx/owl.png) no-repeat center;
+  background: url(https://i.ibb.co/rm2X8QP/owl.png) no-repeat center;
   background-size: 90%;
   max-width: 100px;
   flex: 1 1 0;
@@ -29,6 +56,13 @@ li {
   text-indent: -100000px;
 }
 
-a {
+.shopLink {
+  font-family: "Paytone One", cursive;
   text-decoration: none !important;
+  color: #083232;
+  font-weight: bolder;
+}
+
+.shopLink:hover {
+  color: white;
 }
