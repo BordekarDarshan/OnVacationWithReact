@@ -4,11 +4,12 @@
 }
 
 .cardContainer {
-  width: 23%;
+  width: 20%;
 }
 
 .imageContainer {
   background-position: center;
   background-size: cover;
   height: 20rem;
+  display: flex;
 }

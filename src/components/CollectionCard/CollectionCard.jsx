@@ -7,7 +7,7 @@ function CollectionCard({ title, routeName, items }) {
     <div className="shopCollectionContainer">
       <div className="collectionNamAndButton">
         <h5>{title}</h5>
-        <button>View All</button>
+        <button className="btn btn-outline-secondary">View All</button>
       </div>
       <div className="cardWrapper">
         {items
