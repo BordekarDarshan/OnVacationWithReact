@@ -9,7 +9,7 @@ function Card({ name, imageUrl, price }) {
         style={{ backgroundImage: `url(${imageUrl})` }}
       ></div>
       <div className="productPriceAndName">
-        <p>{name}</p>
+        <h6>{name}</h6>
         <p>{`$${price}`}</p>
       </div>
     </div>
