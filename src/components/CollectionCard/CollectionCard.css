@@ -1,0 +1,9 @@
+.collectionNamAndButton {
+  display: flex;
+  justify-content: space-between;
+}
+.cardWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

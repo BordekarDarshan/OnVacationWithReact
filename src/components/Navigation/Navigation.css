@@ -28,3 +28,7 @@ li {
 .logo li {
   text-indent: -100000px;
 }
+
+a {
+  text-decoration: none !important;
+}

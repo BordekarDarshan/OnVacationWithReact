@@ -1,0 +1,14 @@
+.productPriceAndName {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContainer {
+  width: 23%;
+}
+
+.imageContainer {
+  background-position: center;
+  background-size: cover;
+  height: 20rem;
+}

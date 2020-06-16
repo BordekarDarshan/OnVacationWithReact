@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Navigation.css";
+import { Link } from "react-router-dom";
 
 export class Navigation extends Component {
   render() {
@@ -9,11 +10,15 @@ export class Navigation extends Component {
           <li>logo</li>
         </div>
         <ul className="navigationOption ">
-          <li>SHOP</li>
+          <li>
+            <Link className="text-secondary" to="/shop">
+              SHOP
+            </Link>
+          </li>
           <li>CONTACT</li>
           <li>SIGN IN</li>
           <li>
-            <i className="fa fa-shopping-bag fa-2x"></i>
+            <i className="fa fa-shopping-bag fa-2x"> </i>
           </li>
         </ul>
       </div>
