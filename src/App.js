@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import { Route, Switch } from "react-router-dom";
 import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
-import SignIn from "./pages/SignInPage/SignIn";
+import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" exact component={HomePage}></Route>
         <Route path="/hats" component={HatsPage}></Route>
         <Route path="/shop" component={ShopPage}></Route>
-        <Route path="/signin" component={SignIn}></Route>
+        <Route path="/signin" component={SignInAndSignUpPage}></Route>
       </Switch>
     </React.Fragment>
   );
