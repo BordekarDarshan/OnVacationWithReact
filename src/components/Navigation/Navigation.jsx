@@ -16,7 +16,11 @@ export class Navigation extends Component {
               SHOP
             </Link>
           </li>
-          <li>SIGN IN</li>
+
+          <Link to="/signin" className="userLogin">
+            <li>SIGN IN</li>
+          </Link>
+
           <li>YOUR CART</li>
         </ul>
       </div>

@@ -33,7 +33,7 @@
   padding-top: 15px;
 }
 
-.navigationOption > li:nth-child(2) {
+.userLogin {
   text-indent: -10000px;
   background: url(https://i.ibb.co/wB25mYW/icons8-circled-user-64.png) no-repeat
     center;

@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import { Route, Switch } from "react-router-dom";
 import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
+import SignIn from "./pages/SignInPage/SignIn";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact component={HomePage}></Route>
         <Route path="/hats" component={HatsPage}></Route>
         <Route path="/shop" component={ShopPage}></Route>
+        <Route path="/signin" component={SignIn}></Route>
       </Switch>
     </React.Fragment>
   );
