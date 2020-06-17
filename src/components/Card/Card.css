@@ -13,3 +13,17 @@
   height: 20rem;
   display: flex;
 }
+
+@media screen and (max-width: 800px) {
+  .cardContainer {
+    min-width: 29%;
+    flex: 1 1 0;
+    margin: 2%;
+  }
+  .imageContainer {
+    background-position: center;
+    background-size: cover;
+    height: 20rem;
+    display: flex;
+  }
+}

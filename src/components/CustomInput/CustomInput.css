@@ -4,3 +4,9 @@
   margin: 4% 0 4% 0;
   width: 80%;
 }
+
+@media screen and (max-width: 800px) {
+  .modifiedIpnut {
+    width: 60%;
+  }
+}
