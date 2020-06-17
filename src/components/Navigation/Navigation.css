@@ -41,6 +41,13 @@
   width: 40px;
 }
 
+.userLogout {
+  text-indent: -10000px;
+  background: url(https://i.ibb.co/yYV53YH/logout.png) no-repeat center;
+  background-size: 80%;
+  width: 40px;
+}
+
 .navigationOption > li:nth-child(3) {
   text-indent: -10000px;
   background: url(https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png) no-repeat
