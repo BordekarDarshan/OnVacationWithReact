@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./SignIn.css";
+import { signInWithGoogle } from "../../Firebase/Firebase";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
+import "./SignIn.css";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -19,10 +20,10 @@ export class SignIn extends Component {
   };
 
   eventSignIN = () => {
-    console.log("Click");
+    console.log("Clicks");
   };
   eventSignInGoogle = () => {
-    console.log("Clicks");
+    signInWithGoogle();
   };
   render() {
     return (
