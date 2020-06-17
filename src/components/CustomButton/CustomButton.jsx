@@ -1,10 +1,10 @@
 import React from "react";
 
-function CustomButton({ text, buttonEvent }) {
+function CustomButton({ text, submitButtonEvent, type }) {
   return (
     <div className="buttonWrapper">
-      <button className="btn" onClick={buttonEvent}>
-        {text}kk
+      <button type={type} className="btn" onClick={submitButtonEvent}>
+        {text}
       </button>
     </div>
   );
