@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
+import "./SignUp.css";
 
 export class SignUp extends Component {
   constructor(props) {
@@ -63,6 +64,8 @@ export class SignUp extends Component {
             type="submit"
             submitButtonEvent={this.sendDataEvent}
             text="SIGN UP"
+            btnClass="btn rounded-0"
+            style={{ backgroundColor: "#083232", color: "white" }}
           />
         </form>
       </div>

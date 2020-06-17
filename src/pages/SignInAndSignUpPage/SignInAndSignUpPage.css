@@ -1,0 +1,12 @@
+.SignInAndSignUpWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 800px) {
+  .SignInAndSignUpWrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+}

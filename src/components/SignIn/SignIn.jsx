@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./SignIn.css";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
 
@@ -49,11 +50,15 @@ export class SignIn extends Component {
             type="submit"
             submitButtonEvent={this.eventSignIN}
             text="SIGN IN"
+            btnClass="btn  rounded-0"
+            style={{ backgroundColor: "#9dada3", color: "black" }}
           />
           <CustomButton
             type="submit"
             submitButtonEvent={this.eventSignInGoogle}
             text="SIGN IN WITH GOOGLE"
+            btnClass="btn rounded-0"
+            style={{ backgroundColor: "#083232", color: "white" }}
           />
         </div>
       </div>

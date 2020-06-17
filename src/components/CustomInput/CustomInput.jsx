@@ -1,4 +1,5 @@
 import React from "react";
+import "./CustomInput.css";
 
 function CustomInput({ type, inputOnChangeEvent, value, placeholder, name }) {
   return (
@@ -9,6 +10,7 @@ function CustomInput({ type, inputOnChangeEvent, value, placeholder, name }) {
         value={value}
         placeholder={placeholder}
         name={name}
+        className="modifiedIpnut"
       ></input>
     </div>
   );

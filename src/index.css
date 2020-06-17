@@ -13,3 +13,7 @@ body {
 ::-webkit-scrollbar-track {
   background-color: #9dada3;
 }
+
+*:focus {
+  outline: none;
+}
