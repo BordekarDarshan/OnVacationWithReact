@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
-import { auth } from "./Firebase/Firebase";
+import { auth, createUserDataAfterSignIn } from "./Firebase/Firebase";
 
 export class App extends Component {
   constructor(props) {
@@ -19,10 +19,28 @@ export class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log(this.state.currentUser);
-    });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(
+      async (userAuthObject) => {
+        if (userAuthObject) {
+          try {
+            let storeDataInState = await createUserDataAfterSignIn(
+              userAuthObject
+            );
+
+            storeDataInState.onSnapshot((data) => {
+              this.setState(
+                { currentUser: { id: data.id, ...data.data() } },
+                () => console.log(this.state)
+              );
+            });
+          } catch (error) {
+            console.log("Something Went Wrong");
+          }
+        } else {
+          this.setState({ currentUser: null });
+        }
+      }
+    );
   }
 
   componentWillUnmount() {

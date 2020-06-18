@@ -11,6 +11,7 @@ function CustomInput({ type, inputOnChangeEvent, value, placeholder, name }) {
         placeholder={placeholder}
         name={name}
         className="modifiedIpnut"
+        required
       ></input>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
+import { createUserDataAfterSignIn, auth } from "../../Firebase/Firebase";
 import "./SignUp.css";
 
 export class SignUp extends Component {
@@ -8,7 +9,7 @@ export class SignUp extends Component {
     super(props);
 
     this.state = {
-      name: "",
+      displayName: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -20,8 +21,24 @@ export class SignUp extends Component {
     this.setState({ [name]: value });
   };
 
-  sendDataEvent = () => {
-    console.log("Click");
+  sendDataEvent = async () => {
+    const { displayName, email, confirmPassword, password } = this.state;
+
+    if (password !== confirmPassword) {
+      alert("Password Don't Match! Check Again...");
+      return;
+    }
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      console.log(user);
+
+      await createUserDataAfterSignIn(user, { displayName });
+    } catch (error) {
+      console.log("User Account Creation Failed", error.message);
+    }
   };
 
   render() {
@@ -36,7 +53,7 @@ export class SignUp extends Component {
             inputOnChangeEvent={this.getInput}
             value={this.state.name}
             placeholder="Display Name"
-            name="name"
+            name="displayName"
           />
           <CustomInput
             type="email"
