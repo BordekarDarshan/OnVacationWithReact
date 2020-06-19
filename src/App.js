@@ -34,7 +34,7 @@ export class App extends Component {
               );
             });
           } catch (error) {
-            console.log("Something Went Wrong");
+            console.log("Something Went Wrong", error.message);
           }
         } else {
           this.setState({ currentUser: null });

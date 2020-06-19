@@ -33,7 +33,6 @@ export class SignUp extends Component {
         email,
         password
       );
-      console.log(user);
 
       await createUserDataAfterSignIn(user, { displayName });
     } catch (error) {
