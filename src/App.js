@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
@@ -41,18 +41,32 @@ export class App extends Component {
       <React.Fragment>
         <Navigation></Navigation>
         <Switch>
-          <Route path="/" exact component={HomePage}></Route>
-          <Route path="/hats" component={HatsPage}></Route>
-          <Route path="/shop" component={ShopPage}></Route>
-          <Route path="/signin" component={SignInAndSignUpPage}></Route>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/hats" component={HatsPage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route
+            path="/signin"
+            exact
+            render={() =>
+              this.props.currentUserForRedirect ? (
+                <Redirect to="/" />
+              ) : (
+                <SignInAndSignUpPage />
+              )
+            }
+          />
         </Switch>
       </React.Fragment>
     );
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUserForRedirect: user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   currentUserProp: (user) => dispatch(userAction(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

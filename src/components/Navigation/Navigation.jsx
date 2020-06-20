@@ -13,15 +13,17 @@ export class Navigation extends Component {
           <li>logo</li>
         </div>
         <ul className="navigationOption ">
-          <li>
-            <Link to="/shop" className="shopLink">
-              SHOP
-            </Link>
+          {userProp ? (
+            <li className="userName">{userProp.displayName}</li>
+          ) : null}
+
+          <li className="shopLink">
+            <Link to="/shop">SHOP</Link>
           </li>
 
           {userProp ? (
             <li onClick={() => auth.signOut()} className="userLogout">
-              SIGN Out
+              SIGN OUT
             </li>
           ) : (
             <Link to="/signin" className="userLogin">
@@ -29,7 +31,7 @@ export class Navigation extends Component {
             </Link>
           )}
 
-          <li>YOUR CART</li>
+          <li className="userCart">YOUR CART</li>
         </ul>
       </div>
     );

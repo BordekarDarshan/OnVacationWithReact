@@ -30,7 +30,24 @@
 }
 
 .navigationOption > li:nth-child(1) {
-  padding-top: 15px;
+  color: white;
+  font-weight: bolder;
+  padding-top: 15px !important;
+}
+
+.shopLink > a {
+  font-family: "Paytone One", cursive;
+  text-decoration: none !important;
+  color: #083232;
+  font-weight: bolder;
+}
+
+.shopLink {
+  padding-top: 15px !important;
+}
+
+.shopLink > a:hover {
+  color: white;
 }
 
 .userLogin {
@@ -48,7 +65,7 @@
   width: 40px;
 }
 
-.navigationOption > li:nth-child(3) {
+.userCart {
   text-indent: -10000px;
   background: url(https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png) no-repeat
     center;
@@ -56,22 +73,8 @@
   width: 40px;
 }
 
-.shopLink {
-  font-family: "Paytone One", cursive;
-  text-decoration: none !important;
-  color: #083232;
-  font-weight: bolder;
-}
-
-.shopLink:hover {
-  color: white;
-}
-
 li {
   list-style: none;
   padding: 10px;
   cursor: pointer;
-  font-family: "Paytone One", sans-serif;
-  color: #083232;
-  font-weight: 500;
 }
