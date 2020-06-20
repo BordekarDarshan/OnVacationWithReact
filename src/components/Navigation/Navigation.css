@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1% 1% 1% 0;
+  padding: 0.5% 1% 1% 0;
   background-color: #9dada3;
   position: -webkit-sticky;
   position: sticky;
@@ -10,15 +10,14 @@
 }
 
 .logo {
-  background: url(https://i.ibb.co/rm2X8QP/owl.png) no-repeat center;
-  background-size: 90%;
-  max-width: 100px;
-  flex: 1 1 0;
   display: flex;
-  padding-top: 10px;
+  justify-content: space-evenly;
 }
 
-.logo li {
+.webLogo {
+  background: url(https://i.ibb.co/rm2X8QP/owl.png) no-repeat center;
+  background-size: 90%;
+  width: 100px;
   text-indent: -100000px;
 }
 
@@ -29,24 +28,27 @@
   justify-content: space-evenly;
 }
 
-.navigationOption > li:nth-child(1) {
+.userName {
+  font-family: "Paytone One", cursive;
   color: white;
-  font-weight: bolder;
-  padding-top: 15px !important;
+  font-weight: 1000;
 }
 
-.shopLink > a {
+.shopLink > a,
+.homeLink > a {
   font-family: "Paytone One", cursive;
   text-decoration: none !important;
   color: #083232;
   font-weight: bolder;
 }
 
-.shopLink {
+.shopLink,
+.homeLink {
   padding-top: 15px !important;
 }
 
-.shopLink > a:hover {
+.shopLink > a:hover,
+.homeLink > a:hover {
   color: white;
 }
 
@@ -61,16 +63,16 @@
 .userLogout {
   text-indent: -10000px;
   background: url(https://i.ibb.co/yYV53YH/logout.png) no-repeat center;
-  background-size: 80%;
-  width: 40px;
+  background-size: 60%;
+  width: 50px;
 }
 
 .userCart {
   text-indent: -10000px;
   background: url(https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png) no-repeat
     center;
-  background-size: 80%;
-  width: 40px;
+  background-size: 60%;
+  width: 50px;
 }
 
 li {

@@ -10,13 +10,15 @@ export class Navigation extends Component {
     return (
       <div className="header ">
         <div className="logo">
-          <li>logo</li>
+          <li className="webLogo">logo</li>
+          {userProp ? (
+            <li className="userName">Hey, {userProp.displayName}</li>
+          ) : null}
         </div>
         <ul className="navigationOption ">
-          {userProp ? (
-            <li className="userName">{userProp.displayName}</li>
-          ) : null}
-
+          <li className="homeLink">
+            <Link to="/">HOME</Link>
+          </li>
           <li className="shopLink">
             <Link to="/shop">SHOP</Link>
           </li>
