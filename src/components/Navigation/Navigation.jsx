@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 export class Navigation extends Component {
   render() {
+    const { userProp } = this.props;
     return (
       <div className="header ">
         <div className="logo">
@@ -18,10 +19,9 @@ export class Navigation extends Component {
             </Link>
           </li>
 
-          {this.props.userProp ? (
+          {userProp ? (
             <li onClick={() => auth.signOut()} className="userLogout">
               SIGN Out
-              {console.log(this.props.userProp)}
             </li>
           ) : (
             <Link to="/signin" className="userLogin">

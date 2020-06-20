@@ -13,6 +13,7 @@ export class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { currentUserProp } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(
       async (userAuthObject) => {
         if (userAuthObject) {
@@ -22,15 +23,16 @@ export class App extends Component {
             );
 
             storeDataInState.onSnapshot((data) => {
-              this.props.currentUserProp({
-                currentUser: { id: data.id, ...data.data() },
+              currentUserProp({
+                id: data.id,
+                ...data.data(),
               });
             });
           } catch (error) {
             console.log("Something Went Wrong", error.message);
           }
         } else {
-          this.props.currentUserProp(userAuthObject);
+          currentUserProp(userAuthObject);
         }
       }
     );
