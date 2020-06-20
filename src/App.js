@@ -14,32 +14,26 @@ export class App extends Component {
 
   componentDidMount() {
     const { currentUserProp } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(
-      async (userAuthObject) => {
-        if (userAuthObject) {
-          try {
-            let storeDataInState = await createUserDataAfterSignIn(
-              userAuthObject
-            );
+    auth.onAuthStateChanged(async (userAuthObject) => {
+      if (userAuthObject) {
+        try {
+          let storeDataInState = await createUserDataAfterSignIn(
+            userAuthObject
+          );
 
-            storeDataInState.onSnapshot((data) => {
-              currentUserProp({
-                id: data.id,
-                ...data.data(),
-              });
+          storeDataInState.onSnapshot((data) => {
+            currentUserProp({
+              id: data.id,
+              ...data.data(),
             });
-          } catch (error) {
-            console.log("Something Went Wrong", error.message);
-          }
-        } else {
-          currentUserProp(userAuthObject);
+          });
+        } catch (error) {
+          console.log("Something Went Wrong", error.message);
         }
+      } else {
+        currentUserProp(userAuthObject);
       }
-    );
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
+    });
   }
 
   render() {
