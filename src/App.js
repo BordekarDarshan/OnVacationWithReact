@@ -6,16 +6,10 @@ import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
 import { auth, createUserDataAfterSignIn } from "./Firebase/Firebase";
+import { connect } from "react-redux";
+import { userAction } from "./Redux/User/Action";
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentUser: null,
-    };
-  }
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -28,16 +22,15 @@ export class App extends Component {
             );
 
             storeDataInState.onSnapshot((data) => {
-              this.setState(
-                { currentUser: { id: data.id, ...data.data() } },
-                () => console.log(this.state)
-              );
+              this.props.currentUserProp({
+                currentUser: { id: data.id, ...data.data() },
+              });
             });
           } catch (error) {
             console.log("Something Went Wrong", error.message);
           }
         } else {
-          this.setState({ currentUser: null });
+          this.props.currentUserProp(userAuthObject);
         }
       }
     );
@@ -50,7 +43,7 @@ export class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navigation currentUser={this.state.currentUser}></Navigation>
+        <Navigation></Navigation>
         <Switch>
           <Route path="/" exact component={HomePage}></Route>
           <Route path="/hats" component={HatsPage}></Route>
@@ -62,4 +55,8 @@ export class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  currentUserProp: (user) => dispatch(userAction(user)),
+});
+
+export default connect(null, mapDispatchToProps)(App);
