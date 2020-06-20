@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { auth } from "../../Firebase/Firebase";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import { connect } from "react-redux";
+import { userAction } from "../../Redux/User/Action";
 
 export class Navigation extends Component {
   render() {
@@ -35,4 +37,10 @@ export class Navigation extends Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  console.log(state);
+
+  return state;
+};
+
+export default connect(mapStateToProps, { userAction })(Navigation);
