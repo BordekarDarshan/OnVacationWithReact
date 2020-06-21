@@ -8,7 +8,7 @@ function CartDropdown(props) {
       <button
         type="button"
         className="btn btnCheckOut"
-        style={{ backgroundColor: "#083232", color: "white" }}
+        style={{ backgroundColor: "#05192d", color: "white" }}
         onClick={props.goToCheckout}
       >
         GO TO CHECKOUT
