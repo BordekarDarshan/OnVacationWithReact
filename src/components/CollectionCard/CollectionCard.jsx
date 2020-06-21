@@ -18,8 +18,8 @@ function CollectionCard({ title, routeName, items }) {
       <div className="cardWrapper">
         {items
           .filter((item, index) => index < 4)
-          .map(({ id, ...otherProps }) => (
-            <Card key={id} {...otherProps}></Card>
+          .map((item) => (
+            <Card key={item.id} item={item}></Card>
           ))}
       </div>
     </div>
