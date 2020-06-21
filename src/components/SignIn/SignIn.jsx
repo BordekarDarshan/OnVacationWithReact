@@ -67,7 +67,7 @@ export class SignIn extends Component {
               type="submit"
               submitButtonEvent={this.eventSignInGoogle}
               text="SIGN IN WITH GOOGLE"
-              btnClass="btn rounded-0"
+              btnClass="btn rounded-0 ml-2"
               style={{ backgroundColor: "#083232", color: "white" }}
             />
           </div>

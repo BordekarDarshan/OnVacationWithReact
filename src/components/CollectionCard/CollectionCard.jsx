@@ -7,7 +7,12 @@ function CollectionCard({ title, routeName, items }) {
     <div className="shopCollectionContainer">
       <div className="collectionNamAndButton">
         <h5>{title}</h5>
-        <button className="btn btn-outline-dark">View All</button>
+        <button
+          className="btn"
+          style={{ backgroundColor: "#083232", color: "White" }}
+        >
+          View All
+        </button>
       </div>
 
       <div className="cardWrapper">

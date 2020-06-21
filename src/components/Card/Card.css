@@ -12,11 +12,27 @@
   background-size: cover;
   height: 20rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer:hover {
+  opacity: 0.8;
+}
+
+.addToCartBtn {
+  display: none !important;
+}
+
+.imageContainer:hover .addToCartBtn {
+  display: flex !important;
+  background: rgba(255, 255, 255, 0.932);
+  color: black;
 }
 
 @media screen and (max-width: 800px) {
   .cardContainer {
-    min-width: 29%;
+    min-width: 46%;
     flex: 1 1 0;
     margin: 2%;
   }
