@@ -10,30 +10,34 @@ export class Navigation extends Component {
     return (
       <div className="header ">
         <div className="logo">
-          <li className="webLogo">logo</li>
+          <li className="webLogo"></li>
           {userProp ? (
             <li className="userName">Hey, {userProp.displayName}</li>
           ) : null}
         </div>
+
         <ul className="navigationOption ">
-          <li className="homeLink">
-            <Link to="/">HOME</Link>
+          <li>
+            <Link to="/" className="navigationOptionColor">
+              HOME
+            </Link>
           </li>
-          <li className="shopLink">
-            <Link to="/shop">SHOP</Link>
+          <li>
+            <Link to="/shop" className="navigationOptionColor">
+              SHOP
+            </Link>
           </li>
 
           {userProp ? (
-            <li onClick={() => auth.signOut()} className="userLogout">
-              SIGN OUT
-            </li>
+            <li
+              onClick={() => auth.signOut()}
+              className="userLogout iconSize"
+            ></li>
           ) : (
-            <Link to="/signin" className="userLogin">
-              <li>SIGN IN</li>
-            </Link>
+            <Link to="/signin" className="userLogin iconSize"></Link>
           )}
 
-          <li className="userCart">YOUR CART</li>
+          <li className="userCart iconSize"></li>
         </ul>
       </div>
     );
