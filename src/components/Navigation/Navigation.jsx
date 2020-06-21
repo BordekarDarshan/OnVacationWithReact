@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon/CartIcon";
+import CartDropdown from "../CartDropdown/CartDropdown";
 
 export class Navigation extends Component {
   render() {
@@ -39,6 +40,8 @@ export class Navigation extends Component {
           )}
           <CartIcon></CartIcon>
         </ul>
+
+        <CartDropdown></CartDropdown>
       </div>
     );
   }

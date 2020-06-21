@@ -1,0 +1,23 @@
+.cartDropDownWrapper {
+  position: absolute;
+  width: 240px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  top: 55px;
+  right: 15px;
+  z-index: 5;
+  border-radius: 5px;
+}
+
+.cartItemsWrapper {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.btnCheckOut {
+  margin-top: auto;
+}
