@@ -8,7 +8,7 @@ import CartDropdown from "../CartDropdown/CartDropdown";
 
 export class Navigation extends Component {
   render() {
-    const { userProp } = this.props;
+    const { userProp, cartVisible } = this.props;
     return (
       <div className="header ">
         <div className="logo">
@@ -40,8 +40,7 @@ export class Navigation extends Component {
           )}
           <CartIcon></CartIcon>
         </ul>
-
-        <CartDropdown></CartDropdown>
+        {cartVisible ? null : <CartDropdown></CartDropdown>}
       </div>
     );
   }
@@ -49,6 +48,7 @@ export class Navigation extends Component {
 
 const mapStateToProps = (state) => ({
   userProp: state.user.currentUser,
+  cartVisible: state.isCartVisible.hidden,
 });
 
 export default connect(mapStateToProps)(Navigation);

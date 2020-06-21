@@ -1,9 +1,11 @@
 import React from "react";
 import "./CartIcon.css";
+import { connect } from "react-redux";
+import { cartAction } from "../../Redux/Cart/Action";
 
-function CartIcon() {
+function CartIcon(props) {
   return (
-    <li className="userCart">
+    <li className="userCart" onClick={() => props.changeCartVisibilty()}>
       <img
         src="https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png"
         alt="Cart"
@@ -13,4 +15,8 @@ function CartIcon() {
   );
 }
 
-export default CartIcon;
+const mapDispatchToProps = (dispatch) => ({
+  changeCartVisibilty: () => dispatch(cartAction()),
+});
+
+export default connect(null, mapDispatchToProps)(CartIcon);
