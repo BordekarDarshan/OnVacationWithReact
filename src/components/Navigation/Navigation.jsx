@@ -3,6 +3,7 @@ import { auth } from "../../Firebase/Firebase";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 import { connect } from "react-redux";
+import CartIcon from "../CartIcon/CartIcon";
 
 export class Navigation extends Component {
   render() {
@@ -36,8 +37,7 @@ export class Navigation extends Component {
           ) : (
             <Link to="/signin" className="userLogin iconSize"></Link>
           )}
-
-          <li className="userCart iconSize"></li>
+          <CartIcon></CartIcon>
         </ul>
       </div>
     );

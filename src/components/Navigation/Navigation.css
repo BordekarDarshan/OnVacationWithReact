@@ -54,13 +54,8 @@
   background: url(https://i.ibb.co/yYV53YH/logout.png) no-repeat center;
 }
 
-.userCart {
-  background: url(https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png) no-repeat
-    center;
-}
-
 .iconSize {
-  background-size: 65%;
+  background-size: 60%;
   width: 50px;
 }
 
