@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   removeItemCartAction,
   QuantityDecreaseAction,
-  QuantityIncreaseAction,
+  addItemCartAction,
 } from "../../Redux/Cart/Action";
 
 function CartItemListBlock({ item, dispatch }) {
@@ -27,7 +27,7 @@ function CartItemListBlock({ item, dispatch }) {
         {quantity}
         <span
           className="increaseFont"
-          onClick={() => dispatch(QuantityIncreaseAction(item))}
+          onClick={() => dispatch(addItemCartAction(item))}
         >
           &gt;
         </span>

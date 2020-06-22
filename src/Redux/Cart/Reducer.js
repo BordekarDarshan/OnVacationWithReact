@@ -1,13 +1,10 @@
-import {
-  addItemToCart,
-  increaseQuantity,
-  decreaseQuantity,
-} from "./Util/CartUtil";
+import { addItemToCart, decreaseQuantity } from "./Util/CartUtil";
 
 let Initial_State = {
   hidden: true,
   cartItems: [],
 };
+
 export const cartReducer = (state = Initial_State, action) => {
   switch (action.type) {
     case "Change_Cart_Visibility":
@@ -20,7 +17,7 @@ export const cartReducer = (state = Initial_State, action) => {
     case "Quantity_Increase_Action":
       return {
         ...state,
-        cartItems: increaseQuantity(state.cartItems, action.payload),
+        cartItems: addItemToCart(state.cartItems, action.payload),
       };
 
     case "Quantity_Decrease_Action":

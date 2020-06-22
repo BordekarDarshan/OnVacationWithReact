@@ -27,17 +27,3 @@ export const decreaseQuantity = (cartItems, cartItemToRemove) => {
       : item
   );
 };
-
-export const increaseQuantity = (cartItems, cartQuantityToAdd) => {
-  const existingCartItem = cartItems.find(
-    (item) => item.id === cartQuantityToAdd.id
-  );
-  if (existingCartItem) {
-    return cartItems.map((item) =>
-      item.id === cartQuantityToAdd.id
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    );
-  }
-  return [...cartItems];
-};

@@ -12,11 +12,6 @@ export const QuantityDecreaseAction = (item) => ({
   payload: item,
 });
 
-export const QuantityIncreaseAction = (item) => ({
-  type: "Quantity_Increase_Action",
-  payload: item,
-});
-
 export const removeItemCartAction = (item) => ({
   type: "Remove_Cart_Item",
   payload: item,
