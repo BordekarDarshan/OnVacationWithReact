@@ -3,21 +3,19 @@ import "./CartDropdown.css";
 import { connect } from "react-redux";
 import CartItemList from "../CartItemList/CartItemList";
 import { selectCartItems } from "../../Redux/Cart/Selector";
+import { withRouter } from "react-router-dom";
+import EmptyCartMessage from "../EmptyCartMessage/EmptyCartMessage";
 
-function CartDropdown({ goToCheckout, cartList }) {
+function CartDropdown({ cartList, history }) {
+  console.log(history);
+
   return (
     <div className="cartDropDownWrapper">
       {cartList.length === 0 ? (
-        <div className="noCartItems">
-          <img
-            src="https://i.ibb.co/VTkbtvs/Empty-Bag.png"
-            alt="Empty-Bag"
-          ></img>
-
-          <p className="customP">
-            There is nothing in your bag. Let's add some items
-          </p>
-        </div>
+        <EmptyCartMessage
+          wrapperClass="noCartItems"
+          msgClass="customP"
+        ></EmptyCartMessage>
       ) : (
         <React.Fragment>
           <div className="cartItemsWrapper">
@@ -29,7 +27,7 @@ function CartDropdown({ goToCheckout, cartList }) {
             type="button"
             className="btn btnCheckOut"
             style={{ backgroundColor: "#05192d", color: "white" }}
-            onClick={goToCheckout}
+            onClick={() => history.push("/checkout")}
           >
             GO TO CHECKOUT
           </button>
@@ -43,4 +41,4 @@ const mapStateToProps = (state) => ({
   cartList: selectCartItems(state),
 });
 
-export default connect(mapStateToProps)(CartDropdown);
+export default withRouter(connect(mapStateToProps)(CartDropdown));

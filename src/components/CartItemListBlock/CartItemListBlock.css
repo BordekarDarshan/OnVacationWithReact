@@ -1,0 +1,28 @@
+.cartItemListWrapper {
+  display: flex;
+  width: 60%;
+  align-items: center;
+}
+
+.productImg {
+  width: 16%;
+  padding: 2%;
+  margin: 2%;
+}
+
+.productImg > img {
+  width: 100%;
+}
+
+.customSpace {
+  width: 20%;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cartItemListWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+}

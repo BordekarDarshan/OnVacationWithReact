@@ -21,6 +21,12 @@ export const selectCartItemsCount = createSelector(
   (cartItems) => cartItems.reduce((prev, next) => prev + next.quantity, 0)
 );
 
+export const selectTotalAmount = createSelector(
+  [selectCartItems],
+  (cartItems) =>
+    cartItems.reduce((prev, next) => prev + next.quantity * next.price, 0)
+);
+
 // selectCart took isCartVisible(1 layer deep) from redux state.
 // Now, selectCart = {iscartvisible : {}}
 

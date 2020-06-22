@@ -9,6 +9,7 @@ import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
 import { userAction } from "./Redux/User/Action";
 import { currentUserSelector } from "./Redux/User/User.Selector";
+import Checkout from "./pages/CheckoutPage/Checkout";
 
 export class App extends Component {
   unsubscribeFromAuth = null;
@@ -56,6 +57,7 @@ export class App extends Component {
               )
             }
           />
+          <Route path="/checkout" exact component={Checkout}></Route>
         </Switch>
       </React.Fragment>
     );
