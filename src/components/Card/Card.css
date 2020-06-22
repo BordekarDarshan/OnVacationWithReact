@@ -32,9 +32,9 @@
 
 @media screen and (max-width: 800px) {
   .cardContainer {
-    min-width: 46%;
+    min-width: 42%;
     flex: 1 1 0;
-    margin: 2%;
+    margin: 4%;
   }
   .imageContainer {
     background-position: center;

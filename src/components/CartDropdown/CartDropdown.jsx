@@ -9,9 +9,10 @@ function CartDropdown({ goToCheckout, cartList }) {
       {cartList.length === 0 ? (
         <div className="noCartItems">
           <img
-            src="https://i.ibb.co/2PZ87gW/Empty-Bag.png"
-            alt="Empty Cart"
+            src="https://i.ibb.co/VTkbtvs/Empty-Bag.png"
+            alt="Empty-Bag"
           ></img>
+
           <p className="customP">
             There is nothing in your bag. Let's add some items
           </p>

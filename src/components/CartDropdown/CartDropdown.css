@@ -9,7 +9,7 @@
   right: 15px;
   z-index: 5;
   border-radius: 5px;
-  background: rgba(73, 69, 69, 0.932);
+  background: rgba(129, 125, 125, 0.932);
 }
 
 .cartItemsWrapper {
@@ -29,11 +29,10 @@
   align-items: center;
 }
 .noCartItems > img {
-  height: auto;
   width: 50%;
 }
 .customP {
-  color: wheat;
+  color: #ffe5b4;
   text-align: center;
   font-weight: lighter;
 }
