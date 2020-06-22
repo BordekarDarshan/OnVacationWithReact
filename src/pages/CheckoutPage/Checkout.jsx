@@ -19,7 +19,7 @@ function Checkout({ itemForCheckout, totalAmountCheckOut }) {
       </div>
 
       {itemForCheckout.map((item) => (
-        <CartItemListBlock {...item}></CartItemListBlock>
+        <CartItemListBlock item={item}></CartItemListBlock>
       ))}
 
       <div>

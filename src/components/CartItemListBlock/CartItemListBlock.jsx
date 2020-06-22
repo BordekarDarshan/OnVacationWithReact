@@ -1,7 +1,8 @@
 import React from "react";
 import "./CartItemListBlock.css";
 
-function CartItemListBlock({ imageUrl, name, price, id, quantity }) {
+function CartItemListBlock({ item }) {
+  const { imageUrl, name, price, id, quantity } = item;
   return (
     <div className="cartItemListWrapper" key={id}>
       <div className="productImg">
