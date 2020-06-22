@@ -5,8 +5,9 @@ import CartItemList from "../CartItemList/CartItemList";
 import { selectCartItems } from "../../Redux/Cart/Selector";
 import { withRouter } from "react-router-dom";
 import EmptyCartMessage from "../EmptyCartMessage/EmptyCartMessage";
+import { cartAction } from "../../Redux/Cart/Action";
 
-function CartDropdown({ cartList, history }) {
+function CartDropdown({ cartList, history, dispatch }) {
   console.log(history);
 
   return (
@@ -27,7 +28,10 @@ function CartDropdown({ cartList, history }) {
             type="button"
             className="btn btnCheckOut"
             style={{ backgroundColor: "#05192d", color: "white" }}
-            onClick={() => history.push("/checkout")}
+            onClick={() => {
+              history.push("/checkout");
+              dispatch(cartAction());
+            }}
           >
             GO TO CHECKOUT
           </button>
@@ -42,3 +46,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
+
+// Connect passes "dispatch" into our component as prop.
