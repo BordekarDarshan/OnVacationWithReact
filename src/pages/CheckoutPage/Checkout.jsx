@@ -22,8 +22,8 @@ function Checkout({ itemForCheckout, totalAmountCheckOut }) {
         <CartItemListBlock {...item}></CartItemListBlock>
       ))}
 
-      <div className="totalAmt customSpace">
-        <span>Total ${totalAmountCheckOut}</span>
+      <div>
+        <span className="totalAmt">Total ${totalAmountCheckOut}</span>
       </div>
     </div>
   ) : (

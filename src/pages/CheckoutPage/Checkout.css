@@ -8,6 +8,8 @@
 .checkoutHeader {
   width: 60%;
   display: flex;
+  padding-bottom: 1%;
+  border-bottom: 1px black solid;
 }
 
 .HeaderBlock {
@@ -53,9 +55,14 @@
   cursor: pointer;
 }
 
+.totalAmt {
+  font-size: x-large;
+  font-weight: lighter;
+}
+
 @media screen and (max-width: 768px) {
   .checkoutHeader {
-    width: 100%;
+    width: 95%;
     display: flex;
   }
 }

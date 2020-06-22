@@ -22,7 +22,7 @@
 @media screen and (max-width: 768px) {
   .cartItemListWrapper {
     display: flex;
-    width: 100%;
+    width: 95%;
     align-items: center;
   }
 }
