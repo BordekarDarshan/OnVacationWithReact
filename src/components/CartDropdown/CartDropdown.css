@@ -22,3 +22,18 @@
   margin-top: auto;
   opacity: 0.9;
 }
+
+.noCartItems {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.noCartItems > img {
+  height: auto;
+  width: 50%;
+}
+.customP {
+  color: wheat;
+  text-align: center;
+  font-weight: lighter;
+}
