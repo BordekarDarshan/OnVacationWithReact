@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import { cartListToggle } from "../../Redux/Cart/Selector";
+import { currentUserSelector } from "../../Redux/User/User.Selector";
 
 export class Navigation extends Component {
   render() {
@@ -48,7 +49,7 @@ export class Navigation extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  userProp: state.user.currentUser,
+  userProp: currentUserSelector(state),
   cartVisible: cartListToggle(state),
 });
 

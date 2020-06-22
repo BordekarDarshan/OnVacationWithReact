@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { auth, createUserDataAfterSignIn } from "./Firebase/Firebase";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
-import { Route, Switch, Redirect } from "react-router-dom";
 import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
-import { auth, createUserDataAfterSignIn } from "./Firebase/Firebase";
-import { connect } from "react-redux";
 import { userAction } from "./Redux/User/Action";
+import { currentUserSelector } from "./Redux/User/User.Selector";
 
 export class App extends Component {
   unsubscribeFromAuth = null;
@@ -61,8 +62,8 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUserForRedirect: user.currentUser,
+const mapStateToProps = (state) => ({
+  currentUserForRedirect: currentUserSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
