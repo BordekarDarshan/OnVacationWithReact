@@ -2,6 +2,7 @@ import React from "react";
 import "./CartDropdown.css";
 import { connect } from "react-redux";
 import CartItemList from "../CartItemList/CartItemList";
+import { selectCartItems } from "../../Redux/Cart/Selector";
 
 function CartDropdown({ goToCheckout, cartList }) {
   return (
@@ -39,7 +40,7 @@ function CartDropdown({ goToCheckout, cartList }) {
 }
 
 const mapStateToProps = (state) => ({
-  cartList: state.isCartVisible.cartItems,
+  cartList: selectCartItems(state),
 });
 
 export default connect(mapStateToProps)(CartDropdown);

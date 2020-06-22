@@ -2,6 +2,7 @@ import React from "react";
 import "./CartIcon.css";
 import { connect } from "react-redux";
 import { cartAction } from "../../Redux/Cart/Action";
+import { selectCartItemsCount } from "../../Redux/Cart/Selector";
 
 function CartIcon({ changeCartVisibilty, cartItemsCount }) {
   return (
@@ -20,10 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  cartItemsCount: state.isCartVisible.cartItems.reduce(
-    (prev, next) => prev + next.quantity,
-    0
-  ),
+  cartItemsCount: selectCartItemsCount(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);
