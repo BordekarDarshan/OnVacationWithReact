@@ -7,4 +7,9 @@ export const addItemCartAction = (item) => ({
   payload: item,
 });
 
+export const removeItemCartAction = (item) => ({
+  type: "Remove_Cart_Item",
+  payload: item,
+});
+
 // Payload is actually optional property.

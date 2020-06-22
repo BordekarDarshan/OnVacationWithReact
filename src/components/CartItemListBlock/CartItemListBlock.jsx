@@ -1,7 +1,9 @@
 import React from "react";
 import "./CartItemListBlock.css";
+import { connect } from "react-redux";
+import { removeItemCartAction } from "../../Redux/Cart/Action";
 
-function CartItemListBlock({ item }) {
+function CartItemListBlock({ item, dispatch }) {
   const { imageUrl, name, price, id, quantity } = item;
   return (
     <div className="cartItemListWrapper" key={id}>
@@ -19,10 +21,15 @@ function CartItemListBlock({ item }) {
       <div className="productPrice customSpace">${price}</div>
 
       <div className="removeIcon customSpace">
-        <span className="increaseFont">X</span>
+        <span
+          className="increaseFont"
+          onClick={() => dispatch(removeItemCartAction(item))}
+        >
+          X
+        </span>
       </div>
     </div>
   );
 }
 
-export default CartItemListBlock;
+export default connect(null)(CartItemListBlock);
