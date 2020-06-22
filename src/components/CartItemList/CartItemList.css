@@ -1,0 +1,32 @@
+.itemListWrapper {
+  width: 93%;
+  display: flex;
+  flex-direction: row;
+  padding: 3%;
+  margin: 1%;
+  justify-content: flex-start;
+  background: black;
+  border-radius: 5px;
+}
+
+.imgItemContainer > img {
+  width: 50px;
+}
+
+.imgItemContainer {
+  width: 31%;
+  display: flex;
+}
+
+.productNamePriceWrapper {
+  display: flex;
+  flex-flow: column;
+  width: 62%;
+}
+
+.removeMargin {
+  margin-bottom: 0;
+  color: wheat;
+  text-align: center;
+  font-weight: lighter;
+}

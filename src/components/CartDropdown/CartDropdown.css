@@ -4,7 +4,7 @@
   height: 340px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   top: 55px;
   right: 15px;
   z-index: 5;
@@ -13,7 +13,7 @@
 }
 
 .cartItemsWrapper {
-  height: 250px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;

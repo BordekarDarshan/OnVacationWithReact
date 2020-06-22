@@ -1,12 +1,15 @@
 import React from "react";
 import "./CartDropdown.css";
 import { connect } from "react-redux";
+import CartItemList from "../CartItemList/CartItemList";
 
-function CartDropdown({ goToCheckout, cartItemsList }) {
+function CartDropdown({ goToCheckout, cartList }) {
   return (
     <div className="cartDropDownWrapper">
       <div className="cartItemsWrapper">
-        {cartItemsList ? cartItemsList.map((item) => <h1>{item.id}</h1>) : null}
+        {cartList
+          ? cartList.map((item) => <CartItemList key={item.id} {...item} />)
+          : null}
       </div>
       <button
         type="button"
@@ -21,7 +24,7 @@ function CartDropdown({ goToCheckout, cartItemsList }) {
 }
 
 const mapStateToProps = (state) => ({
-  cartItemsList: state.isCartVisible.cartItems,
+  cartList: state.isCartVisible.cartItems,
 });
 
 export default connect(mapStateToProps)(CartDropdown);
