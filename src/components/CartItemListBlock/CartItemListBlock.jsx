@@ -1,7 +1,11 @@
 import React from "react";
 import "./CartItemListBlock.css";
 import { connect } from "react-redux";
-import { removeItemCartAction } from "../../Redux/Cart/Action";
+import {
+  removeItemCartAction,
+  QuantityDecreaseAction,
+  QuantityIncreaseAction,
+} from "../../Redux/Cart/Action";
 
 function CartItemListBlock({ item, dispatch }) {
   const { imageUrl, name, price, id, quantity } = item;
@@ -14,8 +18,19 @@ function CartItemListBlock({ item, dispatch }) {
       <div className="productDesc customSpace">{name}</div>
 
       <div className="productQuantity customSpace">
-        <span className="increaseFont"> &lt; </span>
-        {quantity} <span className="increaseFont">&gt;</span>
+        <span
+          className="increaseFont"
+          onClick={() => dispatch(QuantityDecreaseAction(item))}
+        >
+          &lt;
+        </span>
+        {quantity}
+        <span
+          className="increaseFont"
+          onClick={() => dispatch(QuantityIncreaseAction(item))}
+        >
+          &gt;
+        </span>
       </div>
 
       <div className="productPrice customSpace">${price}</div>
