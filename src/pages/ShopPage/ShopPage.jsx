@@ -2,6 +2,7 @@ import React from "react";
 import "./ShopPage.css";
 import CollectionCard from "../../components/CollectionCard/CollectionCard";
 import { connect } from "react-redux";
+import { selectShopData } from "../../Redux/ShoppageRedux/Selector";
 
 function ShopPage({ shopData }) {
   return (
@@ -13,8 +14,8 @@ function ShopPage({ shopData }) {
   );
 }
 
-const mapStateToProps = ({ shopData }) => ({
-  shopData,
+const mapStateToProps = (state) => ({
+  shopData: selectShopData(state),
 });
 
 export default connect(mapStateToProps)(ShopPage);

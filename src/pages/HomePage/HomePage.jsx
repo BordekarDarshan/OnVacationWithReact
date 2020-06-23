@@ -3,6 +3,7 @@ import "./HomePage.css";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
 import { connect } from "react-redux";
+import { selectBannerData } from "../../Redux/HomepageRedux/Selector";
 
 function HomePage({ bannerData }) {
   return (
@@ -21,8 +22,8 @@ function HomePage({ bannerData }) {
     </React.Fragment>
   );
 }
-const mapStateToProps = ({ bannerData }) => ({
-  bannerData,
+const mapStateToProps = (state) => ({
+  bannerData: selectBannerData(state),
 });
 
 export default connect(mapStateToProps)(HomePage);
