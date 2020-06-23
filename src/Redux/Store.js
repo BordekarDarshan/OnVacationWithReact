@@ -1,12 +1,36 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { userReducer } from "./User/Reducer";
 import { cartReducer } from "./Cart/Reducer";
 
 const middleware = [logger];
 
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["isCartVisible"],
+};
+
 const rootReducer = combineReducers({
   user: userReducer,
   isCartVisible: cartReducer,
 });
-export const store = createStore(rootReducer, applyMiddleware(...middleware));
+
+const reducerPersist = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(
+  reducerPersist,
+  applyMiddleware(...middleware)
+);
+
+export const persistor = persistStore(store);
+
+// persistStore is the persisted version of redux store.
+
+// [import store from "redux-persist/lib/storage"]
+// get the local storage onject on window browser.
+// means want use localstorage as default storage.
+
+// Now We can maontain Cart State with persist
