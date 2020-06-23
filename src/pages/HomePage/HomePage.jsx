@@ -1,16 +1,16 @@
 import React from "react";
 import "./HomePage.css";
-import { Homepage } from "../../Data/HomePage.js";
 import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
+import { connect } from "react-redux";
 
-function HomePage() {
+function HomePage({ bannerData }) {
   return (
     <React.Fragment>
       <div className="background">
         <div className="container-fluid">
           <div className="shopContainer pattern-cross-dots-sm text-white">
-            {Homepage.map(({ id, ...otherProps }) => (
+            {bannerData.map(({ id, ...otherProps }) => (
               <Banner key={id} {...otherProps}></Banner>
             ))}
           </div>
@@ -21,5 +21,8 @@ function HomePage() {
     </React.Fragment>
   );
 }
+const mapStateToProps = ({ bannerData }) => ({
+  bannerData,
+});
 
-export default HomePage;
+export default connect(mapStateToProps)(HomePage);

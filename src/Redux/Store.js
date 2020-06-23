@@ -4,6 +4,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { userReducer } from "./User/Reducer";
 import { cartReducer } from "./Cart/Reducer";
+import { bannerReducer } from "./HomepageRedux/Reducer";
+import { shopReducer } from "./ShoppageRedux/Reducer";
 
 const middleware = [logger];
 
@@ -16,6 +18,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   isCartVisible: cartReducer,
+  bannerData: bannerReducer,
+  shopData: shopReducer,
 });
 
 const reducerPersist = persistReducer(persistConfig, rootReducer);
