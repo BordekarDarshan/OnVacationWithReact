@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { auth } from "../../Firebase/Firebase";
 import { Link } from "react-router-dom";
-import "./Navigation.css";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import { cartListToggle } from "../../Redux/Cart/Selector";
 import { currentUserSelector } from "../../Redux/User/User.Selector";
+import "./Navigation.css";
 
 export class Navigation extends Component {
   render() {

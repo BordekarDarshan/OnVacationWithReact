@@ -1,11 +1,11 @@
 .bannerWrapper {
   display: flex;
-  min-width: 30%;
+  min-width: 29%;
   background-position: center;
   background-size: cover;
   height: 20rem;
   flex: 1 1 0;
-  margin: 1%;
+  margin: 2%;
   align-items: center;
   justify-content: center;
 }
@@ -25,4 +25,16 @@
 .bannerButton:hover {
   background-color: black;
   opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .bannerWrapper {
+    min-width: 46%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .bannerWrapper {
+    min-width: 96%;
+  }
 }

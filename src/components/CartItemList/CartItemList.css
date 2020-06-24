@@ -4,13 +4,13 @@
   flex-direction: row;
   padding: 3%;
   margin: 1%;
-  justify-content: flex-start;
   background: black;
   border-radius: 5px;
 }
 
 .imgItemContainer > img {
   width: 50px;
+  min-height: 50px;
 }
 
 .imgItemContainer {
