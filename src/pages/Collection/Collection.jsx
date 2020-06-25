@@ -10,7 +10,7 @@ function Collection({ shopData }) {
   return (
     <div className="collectionNameContainer">
       <h5>{shopData.title}</h5>
-      <div className="aa">
+      <div className="shopItemsWrapper">
         {shopData.items.map((data) => (
           <React.Fragment key={data.id}>
             <Card item={data}></Card>

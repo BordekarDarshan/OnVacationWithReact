@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
-import HatsPage from "./pages/HatsPage/HatsPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
 import { userAction } from "./Redux/User/Action";
@@ -44,7 +43,6 @@ export class App extends Component {
         <Navigation></Navigation>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/hats" component={HatsPage} />
           <Route path="/shop" component={ShopPage} />
           <Route
             path="/signin"
