@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import CollectionCard from "../CollectionCard/CollectionCard";
-import { selectShopData } from "../../Redux/ShoppageRedux/Selector";
+import { selectShopCollection } from "../../Redux/ShoppageRedux/Selector";
 
 function ShopPage({ shopData }) {
   return (
@@ -14,7 +14,7 @@ function ShopPage({ shopData }) {
 }
 
 const mapStateToProps = (state) => ({
-  shopData: selectShopData(state),
+  shopData: selectShopCollection(state),
 });
 
 export default connect(mapStateToProps)(ShopPage);

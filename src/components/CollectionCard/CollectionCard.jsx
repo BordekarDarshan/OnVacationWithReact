@@ -1,8 +1,11 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./CollectionCard.css";
+import { withRouter } from "react-router-dom";
 
-function CollectionCard({ title, routeName, items }) {
+function CollectionCard({ title, routeName, items, match, history }) {
+  console.log(routeName);
+
   return (
     <div className="shopCollectionContainer">
       <div className="collectionNamAndButton">
@@ -10,6 +13,7 @@ function CollectionCard({ title, routeName, items }) {
         <button
           className="btn"
           style={{ backgroundColor: "#083232", color: "White" }}
+          onClick={() => history.push(`${match.path}/${routeName}`)}
         >
           View All
         </button>
@@ -26,4 +30,4 @@ function CollectionCard({ title, routeName, items }) {
   );
 }
 
-export default CollectionCard;
+export default withRouter(CollectionCard);
