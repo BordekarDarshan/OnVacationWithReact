@@ -18,30 +18,29 @@ function CartItemListBlock({ item, dispatch }) {
       <div className="productDesc customSpace">{name}</div>
 
       <div className="productQuantity customSpace">
-        <span
-          className="increaseFont"
+        <i
+          class="fa fa-chevron-left"
+          aria-hidden="true"
           onClick={() => dispatch(QuantityDecreaseAction(item))}
-        >
-          &lt;
-        </span>
-        {quantity}
-        <span
-          className="increaseFont"
+        ></i>
+
+        <span className="quantityFont">{quantity}</span>
+
+        <i
+          class="fa fa-chevron-right"
+          aria-hidden="true"
           onClick={() => dispatch(addItemCartAction(item))}
-        >
-          &gt;
-        </span>
+        ></i>
       </div>
 
       <div className="productPrice customSpace">${price}</div>
 
       <div className="removeIcon customSpace">
-        <span
-          className="increaseFont"
+        <i
+          class="fa fa-times"
+          aria-hidden="true"
           onClick={() => dispatch(removeItemCartAction(item))}
-        >
-          X
-        </span>
+        ></i>
       </div>
     </div>
   );

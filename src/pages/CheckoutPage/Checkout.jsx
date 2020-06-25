@@ -9,22 +9,16 @@ function Checkout({ itemForCheckout, totalAmountCheckOut }) {
   return itemForCheckout.length > 0 ? (
     <div className="checkoutContainer mt-5">
       <div className="checkoutHeader">
-        {["Product", "Description", "Quantity", "Price", "Remove"].map(
-          (item, index) => (
-            <div className="HeaderBlock" key={index}>
-              <span>{item}</span>
-            </div>
-          )
-        )}
+        {["Product", "", "", "Price", "Remove"].map((item, index) => (
+          <span key={index}>{item}</span>
+        ))}
       </div>
 
       {itemForCheckout.map((item) => (
         <CartItemListBlock item={item}></CartItemListBlock>
       ))}
 
-      <div>
-        <span className="totalAmt">Total ${totalAmountCheckOut}</span>
-      </div>
+      <span className="totalAmt">Total ${totalAmountCheckOut}</span>
     </div>
   ) : (
     <EmptyCartMessage

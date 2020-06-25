@@ -8,11 +8,11 @@
 .checkoutHeader {
   width: 60%;
   display: flex;
-  padding-bottom: 1%;
-  border-bottom: 1px black solid;
+  padding: 1% 0 1% 0;
+  background-color: #9dada3;
 }
 
-.HeaderBlock {
+.checkoutHeader span {
   width: 20%;
   text-align: center;
 }
@@ -21,6 +21,13 @@
   display: flex;
   width: 60%;
   align-items: center;
+}
+.checkoutHeader span:nth-child(3)::after {
+  content: "Quantity";
+}
+
+.checkoutHeader span:nth-child(2)::after {
+  content: "Description";
 }
 
 .productImg {
@@ -64,5 +71,14 @@
   .checkoutHeader {
     width: 95%;
     display: flex;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .checkoutHeader span:nth-child(3)::after {
+    content: "Qty";
+  }
+  .checkoutHeader span:nth-child(2)::after {
+    content: "Desc";
   }
 }
