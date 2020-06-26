@@ -17,4 +17,8 @@ export const removeItemCartAction = (item) => ({
   payload: item,
 });
 
+export const resetCart = () => ({
+  type: "Reset_Cart",
+});
+
 // Payload is actually optional property.

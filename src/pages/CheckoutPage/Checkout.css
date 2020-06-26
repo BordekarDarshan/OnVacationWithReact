@@ -68,6 +68,13 @@
   font-weight: lighter;
 }
 
+.amtAndCard {
+  margin-top: 10px;
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+}
+
 @media screen and (max-width: 768px) {
   .checkoutHeader {
     width: 95%;
@@ -82,11 +89,10 @@
   .checkoutHeader span:nth-child(2)::after {
     content: "Desc";
   }
-}
-
-.amtAndCard {
-  margin-top: 10px;
-  display: flex;
-  width: 50%;
-  justify-content: space-evenly;
+  .amtAndCard {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }

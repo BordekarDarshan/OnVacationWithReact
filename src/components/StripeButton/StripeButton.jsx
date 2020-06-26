@@ -1,17 +1,21 @@
 import React from "react";
 import "./StripeButton.css";
+import History from "../../History/history";
 import StripeCheckout from "react-stripe-checkout";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { resetCart } from "../../Redux/Cart/Action";
 
-function StripeButton({ totalPrice, history }) {
+function StripeButton({ totalPrice, dispatch }) {
   const stripePrice = totalPrice * 100;
   const publishKey =
     "pk_test_51GxwWhCBmyVy3B4ng8EjhFFDtTQZ965BsLakVmPn2jMT1h13Id4Yypm4RJpeKvtpvuChD4bXbcHfiOZynJi7FshT00cvtZFLIu";
 
   const onToken = async (token) => {
-    console.log(token);
-    history.push("/");
+    await dispatch(resetCart());
+    History.push("/");
   };
+
   return (
     <StripeCheckout
       name="Watch out Clothing"
@@ -34,4 +38,4 @@ function StripeButton({ totalPrice, history }) {
   );
 }
 
-export default withRouter(StripeButton);
+export default withRouter(connect(null)(StripeButton));
