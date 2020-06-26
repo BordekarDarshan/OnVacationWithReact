@@ -9,12 +9,13 @@
   width: 60%;
   display: flex;
   padding: 1% 0 1% 0;
-  background-color: #9dada3;
+  background-color: #05192d;
 }
 
 .checkoutHeader span {
   width: 20%;
   text-align: center;
+  color: white;
 }
 
 .cartItemListWrapper {
@@ -81,4 +82,11 @@
   .checkoutHeader span:nth-child(2)::after {
     content: "Desc";
   }
+}
+
+.amtAndCard {
+  margin-top: 10px;
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
 }

@@ -2,6 +2,7 @@
   display: flex;
   width: 60%;
   align-items: center;
+  border-bottom: #05192d 2px solid;
 }
 
 .productImg {

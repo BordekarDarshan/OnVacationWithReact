@@ -1,0 +1,11 @@
+.StripeCheckout {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #083232 !important;
+}
+
+.StripeCheckout span {
+  background-image: none !important;
+  background-color: #083232;
+  font-weight: lighter !important;
+}
