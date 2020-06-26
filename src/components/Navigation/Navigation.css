@@ -62,3 +62,24 @@ li {
   padding: 10px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 568px) {
+  .header,
+  .navigationOption {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+  .userLogout {
+    height: 30px;
+    margin: 5px 5px 5px 15px;
+  }
+
+  .userLogin {
+    height: 30px;
+    margin: 5px;
+  }
+  .webLogo {
+    height: 50px;
+  }
+}
