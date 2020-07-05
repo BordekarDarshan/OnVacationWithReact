@@ -1,49 +1,49 @@
 import React, { Component } from "react";
 import { auth } from "../../Firebase/Firebase";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import { cartListToggle } from "../../Redux/Cart/Selector";
 import { currentUserSelector } from "../../Redux/User/User.Selector";
-import "./Navigation.css";
+import {
+  Li,
+  Header,
+  Logo,
+  WebLogo,
+  UserName,
+  UserLogin,
+  UserLogout,
+  NavigationOption,
+  NavigationOptionColor,
+} from "./NavigationStyle";
 
 export class Navigation extends Component {
   render() {
     const { userProp, cartVisible } = this.props;
     return (
-      <div className="header ">
-        <div className="logo">
-          <li className="webLogo"></li>
-          {userProp ? (
-            <li className="userName">Hey, {userProp.displayName}</li>
-          ) : null}
-        </div>
+      <Header>
+        <Logo>
+          <WebLogo></WebLogo>
+          {userProp ? <UserName>Hey, {userProp.displayName}</UserName> : null}
+        </Logo>
 
-        <ul className="navigationOption ">
-          <li>
-            <Link to="/" className="navigationOptionColor">
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link to="/shop" className="navigationOptionColor">
-              SHOP
-            </Link>
-          </li>
+        <NavigationOption>
+          <Li>
+            <NavigationOptionColor to="/home">HOME</NavigationOptionColor>
+          </Li>
+          <Li>
+            <NavigationOptionColor to="/shop">SHOP</NavigationOptionColor>
+          </Li>
 
           {userProp ? (
-            <li
-              onClick={() => auth.signOut()}
-              className="userLogout iconSize"
-            ></li>
+            <UserLogout onClick={() => auth.signOut()}></UserLogout>
           ) : (
-            <Link to="/signin" className="userLogin iconSize"></Link>
+            <UserLogin to="/signin"></UserLogin>
           )}
           <CartIcon></CartIcon>
-        </ul>
+        </NavigationOption>
         {cartVisible ? null : <CartDropdown></CartDropdown>}
-      </div>
+      </Header>
     );
   }
 }
