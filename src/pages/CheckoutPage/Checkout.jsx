@@ -1,5 +1,12 @@
 import React from "react";
 import "./Checkout.css";
+import {
+  CheckoutContainer,
+  CheckoutHeaderSpan,
+  CheckoutHeader,
+  AmtCard,
+  TotalAmt,
+} from "./CheckoutStyle";
 import { selectCartItems, selectTotalAmount } from "../../Redux/Cart/Selector";
 import { connect } from "react-redux";
 import EmptyCartMessage from "../../components/EmptyCartMessage/EmptyCartMessage";
@@ -8,23 +15,23 @@ import StripeButton from "../../components/StripeButton/StripeButton";
 
 function Checkout({ itemForCheckout, totalAmountCheckOut }) {
   return itemForCheckout.length > 0 ? (
-    <div className="checkoutContainer mt-5 mb-4">
-      <div className="checkoutHeader">
+    <CheckoutContainer>
+      <CheckoutHeader>
         {["Product", "", "", "Price", "Remove"].map((item, index) => (
-          <span key={index}>{item}</span>
+          <CheckoutHeaderSpan key={index}>{item}</CheckoutHeaderSpan>
         ))}
-      </div>
+      </CheckoutHeader>
 
       {itemForCheckout.map((item) => (
         <React.Fragment key={item.id}>
           <CartItemListBlock item={item}></CartItemListBlock>
         </React.Fragment>
       ))}
-      <div className="amtAndCard">
-        <span className="totalAmt">Total ${totalAmountCheckOut}</span>
+      <AmtCard>
+        <TotalAmt>Total ${totalAmountCheckOut}</TotalAmt>
         <StripeButton totalPrice={totalAmountCheckOut}></StripeButton>
-      </div>
-    </div>
+      </AmtCard>
+    </CheckoutContainer>
   ) : (
     <EmptyCartMessage
       wrapperClass="EmptyCartWrapper"

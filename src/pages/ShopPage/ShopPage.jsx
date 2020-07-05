@@ -1,11 +1,9 @@
 import React from "react";
-import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
 import { Route } from "react-router-dom";
+import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
 import Collection from "../Collection/Collection";
 
 function ShopPage({ match }) {
-  console.log(match);
-
   return (
     <div className="container-fluid mt-2">
       <Route

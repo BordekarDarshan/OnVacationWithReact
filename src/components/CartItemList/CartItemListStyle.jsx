@@ -1,4 +1,6 @@
-.itemListWrapper {
+import styled from "styled-components";
+
+export const ItemListWrapper = styled.div`
   width: 93%;
   display: flex;
   flex-direction: row;
@@ -7,27 +9,26 @@
   background: black;
   border-radius: 5px;
   max-height: 90px;
-}
+`;
 
-.imgItemContainer > img {
-  width: 50px;
-  min-height: 50px;
-}
-
-.imgItemContainer {
+export const ImgItemContainer = styled.div`
   width: 31%;
   display: flex;
-}
+`;
+export const ImgItemContainerImg = styled.img`
+  width: 50px;
+  min-height: 50px;
+`;
 
-.productNamePriceWrapper {
+export const ProductNamePriceWrapper = styled.div`
   display: flex;
   flex-flow: column;
   width: 62%;
-}
+`;
 
-.removeMargin {
+export const RemoveMargin = styled.p`
   margin-bottom: 0;
   color: wheat;
   text-align: center;
   font-weight: lighter;
-}
+`;

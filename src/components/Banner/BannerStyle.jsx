@@ -1,4 +1,6 @@
-.bannerWrapper {
+import styled from "styled-components";
+
+export const BannerWrapper = styled.div`
   display: flex;
   min-width: 29%;
   background-position: center;
@@ -8,9 +10,15 @@
   margin: 2%;
   align-items: center;
   justify-content: center;
-}
+  @media screen and (max-width: 700px) {
+    min-width: 46%;
+  }
+  @media screen and (max-width: 370px) {
+    min-width: 96%;
+  }
+`;
 
-.bannerButton {
+export const BannerButton = styled.div`
   min-width: 50%;
   background-color: black;
   opacity: 0.8;
@@ -20,21 +28,8 @@
   color: wheat;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.bannerButton:hover {
-  background-color: black;
-  opacity: 1;
-}
-
-@media screen and (max-width: 700px) {
-  .bannerWrapper {
-    min-width: 46%;
+  :hover {
+    background-color: black;
+    opacity: 1;
   }
-}
-
-@media screen and (max-width: 370px) {
-  .bannerWrapper {
-    min-width: 96%;
-  }
-}
+`;

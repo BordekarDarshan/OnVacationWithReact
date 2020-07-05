@@ -1,23 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./Collection.css";
-import { selectCollection } from "../../Redux/ShoppageRedux/Selector";
 import Card from "../../components/Card/Card";
+import { CollectionContainer, ShopItemWrapper } from "./CollectionStyle";
+import { selectCollection } from "../../Redux/ShoppageRedux/Selector";
 
 function Collection({ shopData }) {
-  console.log(shopData);
-
   return (
-    <div className="collectionNameContainer">
+    <CollectionContainer>
       <h5>{shopData.title}</h5>
-      <div className="shopItemsWrapper">
+      <ShopItemWrapper>
         {shopData.items.map((data) => (
           <React.Fragment key={data.id}>
             <Card item={data}></Card>
           </React.Fragment>
         ))}
-      </div>
-    </div>
+      </ShopItemWrapper>
+    </CollectionContainer>
   );
 }
 

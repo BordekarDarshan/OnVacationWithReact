@@ -1,19 +1,28 @@
 import React from "react";
-import "./CartItemList.css";
+import {
+  ItemListWrapper,
+  ImgItemContainer,
+  ImgItemContainerImg,
+  RemoveMargin,
+  ProductNamePriceWrapper,
+} from "./CartItemListStyle.jsx";
 
 function CartItemList({ name, imageUrl, quantity, price }) {
   return (
-    <div className="itemListWrapper">
-      <div className="imgItemContainer">
-        <img src={imageUrl} alt="Cart Item"></img>
-      </div>
-      <div className="productNamePriceWrapper">
-        <p className="removeMargin">{name}</p>
-        <p className="removeMargin">
+    <ItemListWrapper>
+      <ImgItemContainer>
+        <ImgItemContainerImg
+          src={imageUrl}
+          alt="Cart Item"
+        ></ImgItemContainerImg>
+      </ImgItemContainer>
+      <ProductNamePriceWrapper>
+        <RemoveMargin>{name}</RemoveMargin>
+        <RemoveMargin className="removeMargin">
           {quantity} x ${price}
-        </p>
-      </div>
-    </div>
+        </RemoveMargin>
+      </ProductNamePriceWrapper>
+    </ItemListWrapper>
   );
 }
 

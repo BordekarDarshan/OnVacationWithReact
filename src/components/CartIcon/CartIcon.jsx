@@ -1,18 +1,18 @@
 import React from "react";
-import "./CartIcon.css";
+import { UserCartImg, UserCartSpan, UserCart } from "./CartIconStyle.jsx";
 import { connect } from "react-redux";
 import { cartAction } from "../../Redux/Cart/Action";
 import { selectCartItemsCount } from "../../Redux/Cart/Selector";
 
 function CartIcon({ changeCartVisibilty, cartItemsCount }) {
   return (
-    <li className="userCart" onClick={() => changeCartVisibilty()}>
-      <img
+    <UserCart onClick={() => changeCartVisibilty()}>
+      <UserCartImg
         src="https://i.ibb.co/9qHtgy8/icons8-shopping-bag-50.png"
         alt="Cart"
-      ></img>
-      <span>{cartItemsCount}</span>
-    </li>
+      ></UserCartImg>
+      <UserCartSpan>{cartItemsCount}</UserCartSpan>
+    </UserCart>
   );
 }
 

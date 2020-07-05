@@ -1,8 +1,0 @@
-.shopContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.background {
-  background-color: #9dada3;
-}
