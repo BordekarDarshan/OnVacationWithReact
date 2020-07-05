@@ -29,7 +29,7 @@ export class Navigation extends Component {
 
         <NavigationOption>
           <Li>
-            <NavigationOptionColor to="/home">HOME</NavigationOptionColor>
+            <NavigationOptionColor to="/">HOME</NavigationOptionColor>
           </Li>
           <Li>
             <NavigationOptionColor to="/shop">SHOP</NavigationOptionColor>
