@@ -1,10 +1,14 @@
 import React from "react";
-import "./CustomInput.css";
+import { ModifiedInput } from "./CustomInputStyle";
 
 function CustomInput({ ...props }) {
   return (
-    <div className="inputWrapper">
-      <input {...props} className="modifiedIpnut" required></input>
+    <div>
+      <ModifiedInput
+        {...props}
+        className="modifiedIpnut"
+        required
+      ></ModifiedInput>
     </div>
   );
 }
