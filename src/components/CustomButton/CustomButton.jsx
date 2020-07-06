@@ -1,26 +1,11 @@
 import React from "react";
-import "./CustomButtonStyle.css";
+import { CustomButtonContainer } from "./CustomButtonStyle";
 
-function CustomButton({
-  viewAllBtn,
-  googleSignIn,
-  signIn,
-  signUp,
-  btnCheckOut,
-  children,
-  ...props
-}) {
+function CustomButton({ children, ...props }) {
   return (
-    <button
-      className={` ${googleSignIn ? "googleSignIn" : ""} ${
-        signIn ? "signIn" : ""
-      } ${signUp ? "signUp" : ""} ${viewAllBtn ? "viewAllBtn" : ""}
-      ${btnCheckOut ? "btnCheckOut" : ""}
-      `}
-      {...props}
-    >
+    <CustomButtonContainer {...props} className="btn">
       {children}
-    </button>
+    </CustomButtonContainer>
   );
 }
 

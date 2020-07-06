@@ -33,11 +33,7 @@ function CartDropdown({ cartList, history, dispatch, isLoggedIn }) {
               ? cartList.map((item) => <CartItemList key={item.id} {...item} />)
               : null}
           </div>
-          <CustomButton
-            type="button"
-            className="btn btnCheckOut"
-            onClick={checkUserStatus}
-          >
+          <CustomButton type="button" btnCheckOut onClick={checkUserStatus}>
             GO TO CHECKOUT
           </CustomButton>
         </React.Fragment>

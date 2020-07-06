@@ -56,17 +56,13 @@ export class SignIn extends Component {
           />
 
           <div className="customButtonContainer">
-            <CustomButton
-              type="submit"
-              onClick={this.eventSignIN}
-              className="btn signIn"
-            >
+            <CustomButton type="submit" onClick={this.eventSignIN} SignIn>
               SIGN IN
             </CustomButton>
             <CustomButton
               type="submit"
               onClick={this.eventSignInGoogle}
-              className="btn googleSignIn"
+              GoogleSignIn
             >
               SIGN IN WITH GOOGLE
             </CustomButton>

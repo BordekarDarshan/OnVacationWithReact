@@ -76,11 +76,7 @@ export class SignUp extends Component {
             name="confirmPassword"
           />
 
-          <CustomButton
-            type="submit"
-            onClick={this.sendDataEvent}
-            className="btn signUp"
-          >
+          <CustomButton type="submit" onClick={this.sendDataEvent} SignUp>
             SIGN UP
           </CustomButton>
         </form>

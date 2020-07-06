@@ -10,7 +10,7 @@ function CollectionCard({ title, routeName, items, match, history }) {
       <div className="collectionNamAndButton">
         <h5>{title}</h5>
         <CustomButton
-          className="btn viewAllBtn"
+          ViewAllBtn
           onClick={() => history.push(`${match.path}/${routeName}`)}
         >
           View All
