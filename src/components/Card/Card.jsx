@@ -1,29 +1,29 @@
 import React from "react";
-import "./Card.css";
-import CustomButton from "../CustomButton/CustomButton";
+import {
+  ProductPriceAndName,
+  CardContainer,
+  ImageContainer,
+  AddToCartBtn,
+} from "./CardStyle";
+
 import { addItemCartAction } from "../../Redux/Cart/Action";
 import { connect } from "react-redux";
 
 function Card({ item, addItemsToCart }) {
   const { name, imageUrl, price } = item;
   return (
-    <div className="cardContainer">
-      <div
-        className="imageContainer"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      >
-        <CustomButton
-          btnClass="btn  addToCartBtn"
-          text="Add To Cart"
-          submitButtonEvent={() => addItemsToCart(item)}
-        ></CustomButton>
-      </div>
+    <CardContainer>
+      <ImageContainer style={{ backgroundImage: `url(${imageUrl})` }}>
+        <AddToCartBtn onClick={() => addItemsToCart(item)} className="btn">
+          Add To Cart
+        </AddToCartBtn>
+      </ImageContainer>
 
-      <div className="productPriceAndName">
+      <ProductPriceAndName>
         <h6>{name}</h6>
         <p>{`$${price}`}</p>
-      </div>
-    </div>
+      </ProductPriceAndName>
+    </CardContainer>
   );
 }
 const mapDispatchToProps = (dispatch) => ({
