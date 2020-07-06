@@ -1,12 +1,22 @@
 import React from "react";
 import "./CustomButtonStyle.css";
 
-function CustomButton({ googleSignIn, signIn, signUp, children, ...props }) {
+function CustomButton({
+  viewAllBtn,
+  googleSignIn,
+  signIn,
+  signUp,
+  btnCheckOut,
+  children,
+  ...props
+}) {
   return (
     <button
       className={` ${googleSignIn ? "googleSignIn" : ""} ${
         signIn ? "signIn" : ""
-      } ${signUp ? "signUp" : ""}`}
+      } ${signUp ? "signUp" : ""} ${viewAllBtn ? "viewAllBtn" : ""}
+      ${btnCheckOut ? "btnCheckOut" : ""}
+      `}
       {...props}
     >
       {children}

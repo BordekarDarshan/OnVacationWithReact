@@ -18,10 +18,6 @@
   flex-direction: column;
   overflow-y: scroll;
 }
-.btnCheckOut {
-  margin-top: auto;
-  opacity: 0.9;
-}
 
 .noCartItems {
   display: flex;

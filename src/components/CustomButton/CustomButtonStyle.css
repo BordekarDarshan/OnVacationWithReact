@@ -14,3 +14,15 @@
   background-color: #083232 !important;
   color: white !important;
 }
+
+.viewAllBtn {
+  background-color: #083232 !important;
+  color: White !important;
+}
+
+.btnCheckOut {
+  margin-top: auto;
+  opacity: 0.9;
+  background-color: #05192d !important;
+  color: white !important;
+}

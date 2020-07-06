@@ -42,14 +42,14 @@ export class SignIn extends Component {
         <form onClick={(event) => event.preventDefault()}>
           <CustomInput
             type="email"
-            inputOnChangeEvent={this.getInputSignIn}
+            onChange={this.getInputSignIn}
             value={this.state.email}
             placeholder="Email"
             name="email"
           />
           <CustomInput
             type="password"
-            inputOnChangeEvent={this.getInputSignIn}
+            onChange={this.getInputSignIn}
             value={this.state.password}
             placeholder="Password"
             name="password"
@@ -58,14 +58,14 @@ export class SignIn extends Component {
           <div className="customButtonContainer">
             <CustomButton
               type="submit"
-              submitButtonEvent={this.eventSignIN}
+              onClick={this.eventSignIN}
               className="btn signIn"
             >
               SIGN IN
             </CustomButton>
             <CustomButton
               type="submit"
-              submitButtonEvent={this.eventSignInGoogle}
+              onClick={this.eventSignInGoogle}
               className="btn googleSignIn"
             >
               SIGN IN WITH GOOGLE

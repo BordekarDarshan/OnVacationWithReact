@@ -1,22 +1,20 @@
 import React from "react";
-import Card from "../Card/Card";
 import "./CollectionCard.css";
+import Card from "../Card/Card";
 import { withRouter } from "react-router-dom";
+import CustomButton from "../CustomButton/CustomButton";
 
 function CollectionCard({ title, routeName, items, match, history }) {
-  console.log(routeName);
-
   return (
     <div className="shopCollectionContainer">
       <div className="collectionNamAndButton">
         <h5>{title}</h5>
-        <button
-          className="btn"
-          style={{ backgroundColor: "#083232", color: "White" }}
+        <CustomButton
+          className="btn viewAllBtn"
           onClick={() => history.push(`${match.path}/${routeName}`)}
         >
           View All
-        </button>
+        </CustomButton>
       </div>
 
       <div className="cardWrapper">

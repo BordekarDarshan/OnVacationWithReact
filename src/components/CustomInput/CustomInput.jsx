@@ -1,18 +1,10 @@
 import React from "react";
 import "./CustomInput.css";
 
-function CustomInput({ type, inputOnChangeEvent, value, placeholder, name }) {
+function CustomInput({ ...props }) {
   return (
     <div className="inputWrapper">
-      <input
-        type={type}
-        onChange={inputOnChangeEvent}
-        value={value}
-        placeholder={placeholder}
-        name={name}
-        className="modifiedIpnut"
-        required
-      ></input>
+      <input {...props} className="modifiedIpnut" required></input>
     </div>
   );
 }

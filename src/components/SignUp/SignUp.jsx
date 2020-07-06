@@ -49,28 +49,28 @@ export class SignUp extends Component {
         <form onClick={(event) => event.preventDefault()}>
           <CustomInput
             type="text"
-            inputOnChangeEvent={this.getInput}
+            onChange={this.getInput}
             value={this.state.name}
-            placeholder="Display Name"
+            placeholder="Username"
             name="displayName"
           />
           <CustomInput
             type="email"
-            inputOnChangeEvent={this.getInput}
+            onChange={this.getInput}
             value={this.state.email}
             placeholder="Email"
             name="email"
           />
           <CustomInput
             type="password"
-            inputOnChangeEvent={this.getInput}
+            onChange={this.getInput}
             value={this.state.password}
             placeholder="Password"
             name="password"
           />
           <CustomInput
             type="password"
-            inputOnChangeEvent={this.getInput}
+            onChange={this.getInput}
             value={this.state.confirmPassword}
             placeholder="Confirm Password"
             name="confirmPassword"
@@ -78,9 +78,8 @@ export class SignUp extends Component {
 
           <CustomButton
             type="submit"
-            submitButtonEvent={this.sendDataEvent}
+            onClick={this.sendDataEvent}
             className="btn signUp"
-            style={{}}
           >
             SIGN UP
           </CustomButton>
