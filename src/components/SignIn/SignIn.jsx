@@ -59,17 +59,17 @@ export class SignIn extends Component {
             <CustomButton
               type="submit"
               submitButtonEvent={this.eventSignIN}
-              text="SIGN IN"
-              btnClass="btn  rounded-0"
-              style={{ backgroundColor: "#9dada3", color: "black" }}
-            />
+              className="btn signIn"
+            >
+              SIGN IN
+            </CustomButton>
             <CustomButton
               type="submit"
               submitButtonEvent={this.eventSignInGoogle}
-              text="SIGN IN WITH GOOGLE"
-              btnClass="btn rounded-0 ml-2"
-              style={{ backgroundColor: "#083232", color: "white" }}
-            />
+              className="btn googleSignIn"
+            >
+              SIGN IN WITH GOOGLE
+            </CustomButton>
           </div>
         </form>
       </div>

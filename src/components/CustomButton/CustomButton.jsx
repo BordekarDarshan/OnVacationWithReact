@@ -1,14 +1,15 @@
 import React from "react";
+import "./CustomButtonStyle.css";
 
-function CustomButton({ text, submitButtonEvent, type, btnClass, style }) {
+function CustomButton({ googleSignIn, signIn, signUp, children, ...props }) {
   return (
     <button
-      type={type}
-      className={btnClass}
-      onClick={submitButtonEvent}
-      style={style}
+      className={` ${googleSignIn ? "googleSignIn" : ""} ${
+        signIn ? "signIn" : ""
+      } ${signUp ? "signUp" : ""}`}
+      {...props}
     >
-      {text}
+      {children}
     </button>
   );
 }

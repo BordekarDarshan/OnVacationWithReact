@@ -1,0 +1,16 @@
+.googleSignIn {
+  border-radius: 0;
+  margin-left: 2%;
+  background-color: #083232 !important;
+  color: white !important;
+}
+
+.signIn {
+  border-radius: 0;
+  background-color: #9dada3 !important;
+  color: black !important;
+}
+.signUp {
+  background-color: #083232 !important;
+  color: white !important;
+}

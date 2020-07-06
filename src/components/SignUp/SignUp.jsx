@@ -79,10 +79,11 @@ export class SignUp extends Component {
           <CustomButton
             type="submit"
             submitButtonEvent={this.sendDataEvent}
-            text="SIGN UP"
-            btnClass="btn rounded-0"
-            style={{ backgroundColor: "#083232", color: "white" }}
-          />
+            className="btn signUp"
+            style={{}}
+          >
+            SIGN UP
+          </CustomButton>
         </form>
       </div>
     );
