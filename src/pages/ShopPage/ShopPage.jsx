@@ -8,8 +8,20 @@ import {
 } from "../../Firebase/Firebase";
 import { connect } from "react-redux";
 import { updateShopColection } from "../../Redux/ShoppageRedux/Action";
+import Spinner from "../../components/Spinner/Spinner";
+
+const CollectionOverviewWithSpinner = Spinner(CollectionOverview);
+const CollectionWithSpinner = Spinner(Collection);
 
 export class ShopPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+    };
+  }
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -21,21 +33,28 @@ export class ShopPage extends Component {
     CollectionRef.onSnapshot(async (snapshot) => {
       const finalData = convertCollectionsSnapshotToMap(snapshot);
       updateCollection(finalData);
+      this.setState({ isLoading: false });
     });
   }
 
   render() {
     const { match } = this.props;
+    const { isLoading } = this.state;
     return (
       <div className="container-fluid mt-2">
         <Route
           exact
           path={`${match.path}`}
+          render={(props) => (
+            <CollectionOverviewWithSpinner isLoading={isLoading} {...props} />
+          )}
           component={CollectionOverview}
         ></Route>
         <Route
           path={`${match.path}/:collectionName`}
-          component={Collection}
+          render={(props) => (
+            <CollectionWithSpinner isLoading={isLoading} {...props} />
+          )}
         ></Route>
       </div>
     );
