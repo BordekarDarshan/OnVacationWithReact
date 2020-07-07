@@ -1,10 +1,11 @@
-import { shopData } from "../../Data/ProductData";
+const Initial_State = {
+  collections: null,
+};
 
-export const shopReducer = (state = shopData, action) => {
+export const shopReducer = (state = Initial_State, action) => {
   switch (action.type) {
-    case "Show_Shop_Data":
-      return action.payload;
-
+    case "Update_Collection":
+      return { ...state, collections: action.payload };
     default:
       return state;
   }

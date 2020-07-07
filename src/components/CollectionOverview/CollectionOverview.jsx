@@ -4,6 +4,8 @@ import CollectionCard from "../CollectionCard/CollectionCard";
 import { selectShopCollection } from "../../Redux/ShoppageRedux/Selector";
 
 function ShopPage({ shopData }) {
+  console.log(shopData);
+
   return (
     <div className="container-fluid mt-2">
       {shopData.map(({ id, ...otherProps }) => (

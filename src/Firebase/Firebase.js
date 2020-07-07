@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import Collection from "../pages/Collection/Collection";
 
 const config = {
   apiKey: "AIzaSyBFyruE5FjDlgYlI5N9X7KpAY97tIAaHXk",
@@ -67,7 +68,11 @@ export const convertCollectionsSnapshotToMap = (collections) => {
       items,
     };
   });
-  console.log(transformedCollection);
+
+  return transformedCollection.reduce((prev, collection) => {
+    prev[collection.title.toLowerCase()] = collection;
+    return prev;
+  }, {});
 };
 
 export const auth = firebase.auth();

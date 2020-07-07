@@ -6,17 +6,22 @@ import {
   firestore,
   convertCollectionsSnapshotToMap,
 } from "../../Firebase/Firebase";
+import { connect } from "react-redux";
+import { updateShopColection } from "../../Redux/ShoppageRedux/Action";
+
 export class ShopPage extends Component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
+    const { updateCollection } = this.props;
     const CollectionRef = firestore.collection("collections");
     // whenever collectionRef gets update or run for the first time this CollectionRef wikk send us the snapshot
     // representing the code of our collection objects array at the time when this code renders.
     // will get from "onSnapshot" is snapshot object of our collection
-    CollectionRef.onSnapshot(async (snapshot) =>
-      convertCollectionsSnapshotToMap(snapshot)
-    );
+    CollectionRef.onSnapshot(async (snapshot) => {
+      const finalData = convertCollectionsSnapshotToMap(snapshot);
+      updateCollection(finalData);
+    });
   }
 
   render() {
@@ -36,5 +41,8 @@ export class ShopPage extends Component {
     );
   }
 }
-
-export default ShopPage;
+const mapDispatchToProps = (dispatch) => ({
+  updateCollection: (collectionMap) =>
+    dispatch(updateShopColection(collectionMap)),
+});
+export default connect(null, mapDispatchToProps)(ShopPage);
