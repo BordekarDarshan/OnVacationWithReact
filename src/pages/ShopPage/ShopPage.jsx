@@ -30,7 +30,13 @@ export class ShopPage extends Component {
     // whenever collectionRef gets update or run for the first time this CollectionRef wikk send us the snapshot
     // representing the code of our collection objects array at the time when this code renders.
     // will get from "onSnapshot" is snapshot object of our collection
-    CollectionRef.onSnapshot(async (snapshot) => {
+    // CollectionRef.onSnapshot(async (snapshot) => {
+    //   const finalData = convertCollectionsSnapshotToMap(snapshot);
+    //   updateCollection(finalData);
+    //   this.setState({ isLoading: false });
+    // });
+    // Promise Pattern
+    CollectionRef.get().then((snapshot) => {
       const finalData = convertCollectionsSnapshotToMap(snapshot);
       updateCollection(finalData);
       this.setState({ isLoading: false });
