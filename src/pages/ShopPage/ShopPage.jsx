@@ -5,7 +5,10 @@ import Collection from "../Collection/Collection";
 import { connect } from "react-redux";
 import { FetchCollectionAsync } from "../../Redux/ShoppageRedux/Action";
 import Spinner from "../../components/Spinner/Spinner";
-import { selectFetchedCollection } from "../../Redux/ShoppageRedux/Selector";
+import {
+  selectFetchedCollection,
+  isCollectionLoaded,
+} from "../../Redux/ShoppageRedux/Selector";
 
 const CollectionOverviewWithSpinner = Spinner(CollectionOverview);
 const CollectionWithSpinner = Spinner(Collection);
@@ -16,7 +19,7 @@ export class ShopPage extends Component {
   }
 
   render() {
-    const { match, isFetched } = this.props;
+    const { match, isFetched, isCollectionLoaded } = this.props;
 
     return (
       <div className="container-fluid mt-2">
@@ -31,7 +34,7 @@ export class ShopPage extends Component {
         <Route
           path={`${match.path}/:collectionName`}
           render={(props) => (
-            <CollectionWithSpinner isLoading={isFetched} {...props} />
+            <CollectionWithSpinner isLoading={!isCollectionLoaded} {...props} />
           )}
         ></Route>
       </div>
@@ -41,6 +44,7 @@ export class ShopPage extends Component {
 
 const mapStateToProps = (state) => ({
   isFetched: selectFetchedCollection(state),
+  isCollectionLoaded: isCollectionLoaded(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

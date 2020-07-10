@@ -20,3 +20,8 @@ export const selectFetchedCollection = createSelector(
   [selectshopState],
   (data) => data.isFetching
 );
+
+export const isCollectionLoaded = createSelector(
+  [selectshopState],
+  (data) => !!data.collections
+);
