@@ -15,3 +15,8 @@ export const selectCollection = (collectionName) =>
   createSelector([selectShopData], (data) =>
     data ? data[collectionName] : null
   );
+
+export const selectFetchedCollection = createSelector(
+  [selectshopState],
+  (data) => data.isFetching
+);

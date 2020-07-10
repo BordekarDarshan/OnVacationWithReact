@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { userReducer } from "./User/Reducer";
@@ -7,7 +8,7 @@ import { cartReducer } from "./Cart/Reducer";
 import { bannerReducer } from "./HomepageRedux/Reducer";
 import { shopReducer } from "./ShoppageRedux/Reducer";
 
-const middleware = [logger];
+const middleware = [logger, thunk];
 
 const persistConfig = {
   key: "root",
