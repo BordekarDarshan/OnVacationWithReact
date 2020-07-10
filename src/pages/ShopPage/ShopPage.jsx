@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Collection from "../Collection/Collection";
 import { connect } from "react-redux";
 import { FetchCollectionAsync } from "../../Redux/ShoppageRedux/Action";
-import Spinner from "../../components/Spinner/Spinner";
-import { isCollectionLoaded } from "../../Redux/ShoppageRedux/Selector";
 import { CollectionOverviewContainer } from "../../components/CollectionOverview/CollectionOverviewContainer";
-
-const CollectionWithSpinner = Spinner(Collection);
+import { CollectionContainer } from "../Collection/CollectionContainer";
 
 export class ShopPage extends Component {
   componentDidMount() {
@@ -15,7 +11,7 @@ export class ShopPage extends Component {
   }
 
   render() {
-    const { match, isCollectionLoaded } = this.props;
+    const { match } = this.props;
 
     return (
       <div className="container-fluid mt-2">
@@ -26,22 +22,16 @@ export class ShopPage extends Component {
         ></Route>
         <Route
           path={`${match.path}/:collectionName`}
-          render={(props) => (
-            <CollectionWithSpinner isLoading={!isCollectionLoaded} {...props} />
-          )}
+          component={CollectionContainer}
         ></Route>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  isCollectionLoaded: isCollectionLoaded(state),
-});
-
 const mapDispatchToProps = (dispatch) => ({
   getCollection: () => dispatch(FetchCollectionAsync()),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(null, mapDispatchToProps)(ShopPage);
 
 // Note => Don't forget to call function like "FetchCollectionAsync()" Don't metion only FetchCollectionAsync it is not a prop.
