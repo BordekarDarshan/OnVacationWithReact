@@ -7,23 +7,15 @@ export const fetchCollectionStart = () => ({
   type: "Fetch_Collection_Start",
 });
 
-export const fetchCollectionSuccess = (collectionMap) => {
-  return (dispatch) => {
-    dispatch({
-      type: "Fetch_Collection_Success",
-      payload: collectionMap,
-    });
-  };
-};
+export const fetchCollectionSuccess = (collectionMap) => ({
+  type: "Fetch_Collection_Success",
+  payload: collectionMap,
+});
 
-export const fetchCollectionFailure = (errorMsg) => {
-  return (dispatch) => {
-    dispatch({
-      type: "Fetch_Failure",
-      payload: errorMsg,
-    });
-  };
-};
+export const fetchCollectionFailure = (errorMsg) => ({
+  type: "Fetch_Failure",
+  payload: errorMsg,
+});
 
 // Asynchronous Action Creator.
 // Redux Thunk doesn't care about action objects. [{ type: "Fetch_Collection_Success",payload: collectionMap}]
@@ -51,3 +43,16 @@ export const FetchCollectionAsync = () => {
 };
 
 // Note => Middleware is like tunnel that intercept our action before the go into the reducer and modify them or add things to them.
+
+// While using generators if you are write function like this
+// then you will get error "action must be plain objects."
+// so for redux-saga we need actions with plain objects not functions.
+
+// export const fetchCollectionSuccess = (collectionMap) => {
+//   return (dispatch) => {
+//     dispatch({
+//       type: "Fetch_Collection_Success",
+//       payload: collectionMap,
+//     });
+//   };
+// };
