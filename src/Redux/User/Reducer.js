@@ -15,6 +15,7 @@ export const userReducer = (state = InitialState, action) => {
       return {
         ...state,
         currentUser: null,
+        error: null,
       };
     case "Sign_Out_Failure":
     case "Sign_In_Failure":
