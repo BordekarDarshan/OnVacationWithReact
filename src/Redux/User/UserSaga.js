@@ -97,6 +97,15 @@ export function* onSignUpSuccess() {
   yield takeLatest("Sign_Up_Success", signUpToSignIn);
 }
 
+// Take give action data{type and payload to its spwans saga}
+function* emailSignInDupli(props) {
+  console.log(props);
+}
+
+export function* onEmailSignInStartDupli() {
+  yield takeLatest("Email_Sign_In_Start", emailSignInDupli);
+}
+
 export function* userSagas() {
   yield all([
     call(onEmailSignInStart),
@@ -105,5 +114,6 @@ export function* userSagas() {
     call(onsignOut),
     call(onSignUpStart),
     call(onSignUpSuccess),
+    call(onEmailSignInStartDupli),
   ]);
 }
