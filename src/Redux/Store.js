@@ -7,7 +7,7 @@ import { cartReducer } from "./Cart/Reducer";
 import { bannerReducer } from "./HomepageRedux/Reducer";
 import { shopReducer } from "./ShoppageRedux/Reducer";
 import createSaga from "redux-saga";
-import { fetchCollectionStart } from "./ShoppageRedux/ShopSaga";
+import { rootSaga } from "./Root-Saga";
 
 const sagaMiddleware = createSaga();
 
@@ -33,7 +33,7 @@ export const store = createStore(
   applyMiddleware(...middleware)
 );
 
-sagaMiddleware.run(fetchCollectionStart);
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
 

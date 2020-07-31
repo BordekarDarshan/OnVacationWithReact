@@ -1,40 +1,22 @@
 import React, { Component } from "react";
-import { auth, createUserDataAfterSignIn } from "./Firebase/Firebase";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
-import { userAction } from "./Redux/User/Action";
 import { currentUserSelector } from "./Redux/User/User.Selector";
 import Checkout from "./pages/CheckoutPage/Checkout";
+import { checkUserSession } from "./Redux/User/Action";
 
 export class App extends Component {
-  unsubscribeFromAuth = null;
-
+  unsubscribe = null;
   componentDidMount() {
-    const { currentUserProp } = this.props;
-    auth.onAuthStateChanged(async (userAuthObject) => {
-      if (userAuthObject) {
-        try {
-          let storeDataInState = await createUserDataAfterSignIn(
-            userAuthObject
-          );
-
-          storeDataInState.onSnapshot((data) => {
-            currentUserProp({
-              id: data.id,
-              ...data.data(),
-            });
-          });
-        } catch (error) {
-          console.log("Something Went Wrong", error.message);
-        }
-      } else {
-        currentUserProp(userAuthObject);
-      }
-    });
+    const { checkUserSession } = this.props;
+    checkUserSession();
+  }
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {
@@ -67,7 +49,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  currentUserProp: (user) => dispatch(userAction(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
