@@ -4,7 +4,12 @@ import {
   auth,
   createUserDataAfterSignIn,
 } from "../../Firebase/Firebase";
-import { signInSuccess, signInFailure } from "./Action";
+import {
+  signInSuccess,
+  signInFailure,
+  signOutFailure,
+  signOutSuccess,
+} from "./Action";
 import { currentUser } from "../../Firebase/Firebase";
 
 export function* getSnapshotFromUserAuth(userAuth) {
@@ -52,11 +57,24 @@ export function* isUserAuthenticated() {
 export function* onCheckUserSession() {
   yield takeLatest("Check_User_Session", isUserAuthenticated);
 }
+export function* signOutUser() {
+  try {
+    yield auth.signOut();
+    yield put(signOutSuccess());
+  } catch (error) {
+    yield put(signOutFailure());
+  }
+}
+
+export function* onsignOut() {
+  yield takeLatest("Sign_Out_Start", signOutUser);
+}
 
 export function* userSagas() {
   yield all([
     call(onEmailSignInStart),
     call(onGoogleSignInStart),
     call(onCheckUserSession),
+    call(onsignOut),
   ]);
 }

@@ -20,3 +20,15 @@ export const signInFailure = (error) => ({
 export const checkUserSession = () => ({
   type: "Check_User_Session",
 });
+
+export const signOutStart = () => ({
+  type: "Sign_Out_Start",
+});
+
+export const signOutSuccess = () => ({
+  type: "Sign_Out_Success",
+});
+
+export const signOutFailure = () => ({
+  type: "Sign_Out_Failure",
+});

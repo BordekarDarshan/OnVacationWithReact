@@ -15,6 +15,7 @@ export class App extends Component {
     const { checkUserSession } = this.props;
     checkUserSession();
   }
+
   componentWillUnmount() {
     this.unsubscribe();
   }

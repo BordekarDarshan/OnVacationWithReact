@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { auth } from "../../Firebase/Firebase";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
@@ -16,6 +15,7 @@ import {
   NavigationOption,
   NavigationOptionColor,
 } from "./NavigationStyle";
+import { signOutStart } from "../../Redux/User/Action";
 
 export class Navigation extends Component {
   render() {
@@ -36,7 +36,7 @@ export class Navigation extends Component {
           </Li>
 
           {userProp ? (
-            <UserLogout onClick={() => auth.signOut()}></UserLogout>
+            <UserLogout onClick={() => this.props.signOut()}></UserLogout>
           ) : (
             <UserLogin to="/signin"></UserLogin>
           )}
@@ -53,4 +53,8 @@ const mapStateToProps = (state) => ({
   cartVisible: cartListToggle(state),
 });
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
