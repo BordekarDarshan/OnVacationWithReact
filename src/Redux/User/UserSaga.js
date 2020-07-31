@@ -9,11 +9,17 @@ import {
   signInFailure,
   signOutFailure,
   signOutSuccess,
+  signUpFailure,
+  signUpSuccess,
 } from "./Action";
 import { currentUser } from "../../Firebase/Firebase";
 
-export function* getSnapshotFromUserAuth(userAuth) {
-  const userRef = yield call(createUserDataAfterSignIn, userAuth);
+export function* getSnapshotFromUserAuth(userAuth, additionalData) {
+  const userRef = yield call(
+    createUserDataAfterSignIn,
+    userAuth,
+    additionalData
+  );
   const userSnapshot = yield userRef.get();
   yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
 }
@@ -70,11 +76,34 @@ export function* onsignOut() {
   yield takeLatest("Sign_Out_Start", signOutUser);
 }
 
+export function* signUp({ payload: { email, password, displayName } }) {
+  try {
+    const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+    yield put(signUpSuccess({ user, additionalData: { displayName } }));
+  } catch (error) {
+    yield put(signUpFailure(error));
+  }
+}
+
+export function* onSignUpStart() {
+  yield takeLatest("Sign_Up_Start", signUp);
+}
+
+export function* signUpToSignIn({ payload: { user, additionalData } }) {
+  yield call(getSnapshotFromUserAuth, user, additionalData);
+}
+
+export function* onSignUpSuccess() {
+  yield takeLatest("Sign_Up_Success", signUpToSignIn);
+}
+
 export function* userSagas() {
   yield all([
     call(onEmailSignInStart),
     call(onGoogleSignInStart),
     call(onCheckUserSession),
     call(onsignOut),
+    call(onSignUpStart),
+    call(onSignUpSuccess),
   ]);
 }

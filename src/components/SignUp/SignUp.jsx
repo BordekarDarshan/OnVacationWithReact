@@ -3,6 +3,8 @@ import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
 import { createUserDataAfterSignIn, auth } from "../../Firebase/Firebase";
 import "./SignUp.css";
+import { signUpStart } from "../../Redux/User/Action";
+import { connect } from "react-redux";
 
 export class SignUp extends Component {
   constructor(props) {
@@ -22,22 +24,14 @@ export class SignUp extends Component {
   };
 
   sendDataEvent = async () => {
+    const { signUpAction } = this.props;
     const { displayName, email, confirmPassword, password } = this.state;
 
     if (password !== confirmPassword) {
       alert("Password Don't Match! Check Again...");
       return;
     }
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await createUserDataAfterSignIn(user, { displayName });
-    } catch (error) {
-      console.log("User Account Creation Failed", error.message);
-    }
+    signUpAction({ displayName, email, password });
   };
 
   render() {
@@ -84,5 +78,7 @@ export class SignUp extends Component {
     );
   }
 }
-
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+  signUpAction: (signUpData) => dispatch(signUpStart(signUpData)),
+});
+export default connect(null, mapDispatchToProps)(SignUp);
