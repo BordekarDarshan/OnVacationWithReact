@@ -99,7 +99,7 @@ export function* onSignUpSuccess() {
 
 // Take give action data{type and payload to its spwans saga}
 function* emailSignInDupli(props) {
-  console.log(props);
+  yield console.log(props);
 }
 
 export function* onEmailSignInStartDupli() {

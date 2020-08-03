@@ -7,7 +7,9 @@ const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const Checkout = lazy(() => import("./pages/CheckoutPage/Checkout"));
 const Navigation = lazy(() => import("./components/Navigation/Navigation"));
-import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
+const SignInAndSignUpPage = lazy(() =>
+  import("./pages/SignInAndSignUpPage/SignInAndSignUpPage")
+);
 
 export class App extends Component {
   unsubscribe = null;
@@ -23,9 +25,9 @@ export class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navigation></Navigation>
-        <Switch>
-          <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<div>...Loading</div>}>
+          <Navigation></Navigation>
+          <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route
@@ -40,8 +42,8 @@ export class App extends Component {
               }
             />
             <Route path="/checkout" exact component={Checkout}></Route>
-          </Suspense>
-        </Switch>
+          </Switch>
+        </Suspense>
       </React.Fragment>
     );
   }

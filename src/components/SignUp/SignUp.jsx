@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomButton from "../CustomButton/CustomButton";
-import { createUserDataAfterSignIn, auth } from "../../Firebase/Firebase";
 import "./SignUp.css";
 import { signUpStart } from "../../Redux/User/Action";
 import { connect } from "react-redux";
