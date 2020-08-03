@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import HomePage from "./pages/HomePage/HomePage";
-import Navigation from "./components/Navigation/Navigation";
-import ShopPage from "./pages/ShopPage/ShopPage";
-import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
-import { currentUserSelector } from "./Redux/User/User.Selector";
-import Checkout from "./pages/CheckoutPage/Checkout";
 import { checkUserSession } from "./Redux/User/Action";
+import { currentUserSelector } from "./Redux/User/User.Selector";
+const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const Checkout = lazy(() => import("./pages/CheckoutPage/Checkout"));
+const Navigation = lazy(() => import("./components/Navigation/Navigation"));
+import SignInAndSignUpPage from "./pages/SignInAndSignUpPage/SignInAndSignUpPage";
 
 export class App extends Component {
   unsubscribe = null;
@@ -25,20 +25,22 @@ export class App extends Component {
       <React.Fragment>
         <Navigation></Navigation>
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route
-            path="/signin"
-            exact
-            render={() =>
-              this.props.currentUserForRedirect ? (
-                <Redirect to="/" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-          <Route path="/checkout" exact component={Checkout}></Route>
+          <Suspense fallback={<div>...Loading</div>}>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route
+              path="/signin"
+              exact
+              render={() =>
+                this.props.currentUserForRedirect ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+            <Route path="/checkout" exact component={Checkout}></Route>
+          </Suspense>
         </Switch>
       </React.Fragment>
     );
