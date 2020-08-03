@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { checkUserSession } from "./Redux/User/Action";
 import { currentUserSelector } from "./Redux/User/User.Selector";
+import OnlySpinner from "./components/OnlySpinner/OnlySpinner";
 const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const Checkout = lazy(() => import("./pages/CheckoutPage/Checkout"));
@@ -25,7 +26,7 @@ export class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<OnlySpinner />}>
           <Navigation></Navigation>
           <Switch>
             <Route path="/" exact component={HomePage} />
