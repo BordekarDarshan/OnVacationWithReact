@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { checkUserSession } from "./Redux/User/Action";
 import { currentUserSelector } from "./Redux/User/User.Selector";
 import OnlySpinner from "./components/OnlySpinner/OnlySpinner";
+import ErrorBoundary from "./components/Error/ErrorBoundary";
 const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const Checkout = lazy(() => import("./pages/CheckoutPage/Checkout"));
@@ -29,20 +30,22 @@ export class App extends Component {
         <Suspense fallback={<OnlySpinner />}>
           <Navigation></Navigation>
           <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route
-              path="/signin"
-              exact
-              render={() =>
-                this.props.currentUserForRedirect ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInAndSignUpPage />
-                )
-              }
-            />
-            <Route path="/checkout" exact component={Checkout}></Route>
+            <ErrorBoundary>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/shop" component={ShopPage} />
+              <Route
+                path="/signin"
+                exact
+                render={() =>
+                  this.props.currentUserForRedirect ? (
+                    <Redirect to="/" />
+                  ) : (
+                    <SignInAndSignUpPage />
+                  )
+                }
+              />
+              <Route path="/checkout" exact component={Checkout}></Route>
+            </ErrorBoundary>
           </Switch>
         </Suspense>
       </React.Fragment>
